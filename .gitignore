@@ -1,3 +1,6 @@
+# C++ Exe Files
+*.o
+
 # Logs
 logs
 *.log
