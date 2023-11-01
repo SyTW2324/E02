@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "../styles/login_style.css"
+import axios from 'axios';
 
   export default defineComponent({
     name: 'LoginComponent',
@@ -26,8 +27,21 @@ import "../styles/login_style.css"
         password: ""
       }  
       const on_click = () => {
-        console.log(user_data.email)
-        console.log(user_data.password)        
+        // console.log(user_data.email)
+        // console.log(user_data.password)
+        const data = {
+          email: user_data.email,
+          password: user_data.password
+        }
+
+        axios.post('http://localhost:3000/users/login', data)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error('Error de autentificación: ', error);
+        });
+
       }
       return {
         user_data,
