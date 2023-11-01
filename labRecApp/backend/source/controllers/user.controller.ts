@@ -18,3 +18,31 @@ export const createUser = async (req:Request, res:Response): Promise<void> => {
     res.status(500).json({ error: 'Error al crear el usuario'});
   }
 } 
+
+export const findUserByEmail = async (req:Request, res:Response): Promise<void> => {
+  try {
+    const { email } = req.params;
+    //console.log(email);
+    const usuario = await user.findOne({email});
+    if (usuario) {
+      res.json(usuario);
+    } else {
+      res.status(404).json({error: 'Usuario not found'});
+    }
+  } catch (error) {
+    res.status(500).json({error: `Ha ocurrido un error al tratar de buscar el usuario`});
+  }
+}
+
+export const getUsers = async (req:Request, res:Response): Promise<void> => {
+  try {
+    const usuarios = await user.find();
+    if (usuarios) {
+      res.json(usuarios);
+    } else {
+      res.status(500).json({error: 'Ha ocurrido un error'})
+    }
+  } catch (error) {
+    res.status(500).json({error: 'Ha ocurrido un error'})
+  }
+}

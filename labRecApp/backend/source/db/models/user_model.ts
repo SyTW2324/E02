@@ -21,7 +21,7 @@ const userSchema: Schema = new Schema({
 });
 
 // Crear el modelo Usuario
-const user = mongoose.model<User_interface>('User', userSchema);
+const user = mongoose.model<User_interface>('user', userSchema);
 
 // Exportamos el modelo de datos
 export default user;
