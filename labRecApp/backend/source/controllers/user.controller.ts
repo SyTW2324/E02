@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import user  from '../db/models/user_model'
+import user from '../db/models/user_model'
+import bcrypt from 'bcrypt';
 
 //?Creamos un controlador para crear usuarios en la BBDD
 //?Este controlador es solamente para yo crear los usuarios con peticiones HTTPS
@@ -11,7 +12,8 @@ import user  from '../db/models/user_model'
 export const createUser = async (req:Request, res:Response): Promise<void> => {
   try {
     const { name, surnames, email, password, user_type } = req.body;
-    const newUser = new user( {name, surnames, email, password, user_type} );
+    const newUser = new user({ name, surnames, email, password, user_type });
+    newUser.password = await bcrypt.hash(password, 20); // 20 representa el numero de rondas de hashing que bcrypt.
     await newUser.save();
     res.status(201).json(newUser);
   } catch(error) {
