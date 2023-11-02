@@ -18,6 +18,7 @@
 import { defineComponent } from "vue";
 import "../styles/login_style.css"
 import axios from 'axios';
+import jwt from 'jsonwebtoken'
 
   export default defineComponent({
     name: 'LoginComponent',
@@ -35,8 +36,8 @@ import axios from 'axios';
         }
 
         axios.post('http://localhost:3000/users/login', data)
-        .then(response => {
-          console.log(response.data);
+          .then(response => {
+            console.log(response.data)
         })
         .catch(error => {
           console.error('Error de autentificación: ', error);
