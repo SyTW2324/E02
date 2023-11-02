@@ -1,9 +1,13 @@
 <template>
-  <h1>Barra de navegacion</h1>
+  
 </template>
 <script lang="ts">
+import Menubar from 'primevue/menubar';
 export default {
   name: "navbarComponent",
+  components: {
+    Menubar
+  }
 }
 </script>
 <style scoped>
