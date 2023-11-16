@@ -1,0 +1,47 @@
+.login_Component {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+
+}
+
+.login_Component login_form {
+    margin-bottom: 10px;
+}
+
+.login_Component input[type="text"],
+.login_Component input[type="password"] {
+    width: 15%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out;
+}
+
+.login_Component input[type="text"]:hover,
+.login_Component input[type="password"]:hover,
+.login_Component input[type="text"]:focus,
+.login_Component input[type="password"]:focus {
+    border-color: #4CAF50;
+    /* Cambia el color del borde al pasar el ratón o al tener el foco */
+}
+
+.login_Component button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login_Component button:hover {
+    background-color: #0e640e;
+    /* Cambia el color de fondo al pasar el ratón */
+}
