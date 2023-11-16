@@ -10,7 +10,7 @@ interface Record_interface extends Document {
 }
 
 const recordSchema: Schema = new Schema({
-  email: {type: String, require:true, unique:true},
+  email: {type: String, require:true},
   ubication: {type: String, require:true},
   action: {type: String, require:true},
   type: {type: String, require:true},

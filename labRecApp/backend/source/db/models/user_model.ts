@@ -17,8 +17,8 @@ interface User_interface extends Document {
 // Definimos el esquema para el modelo de Usuario
 
 const userSchema: Schema = new Schema({
-  name: {type: String},
-  surnames: {type: String},
+  name: {type: String, require:true},
+  surnames: {type: String, require:true},
   dni: {type: String, require:true},
   phone: {type: Number},
   email: {type: String, require:true, unique:true},
