@@ -5,9 +5,13 @@ import mongoose, {Schema, Document} from 'mongoose';
 interface User_interface extends Document {
   name: string;
   surnames: string;
+  dni: string;
+  phone: number;
   email: string;
   password: string;
-  user_type: number;
+  administrator: number;
+  afiliateNumber: number;
+  vacationsDays: number;
 }
 
 // Definimos el esquema para el modelo de Usuario
@@ -15,9 +19,13 @@ interface User_interface extends Document {
 const userSchema: Schema = new Schema({
   name: {type: String},
   surnames: {type: String},
+  dni: {type: String, require:true},
+  phone: {type: Number},
   email: {type: String, require:true, unique:true},
   password: {type: String, require: true},
-  user_type: {type: Number, require:true}
+  administrator: {type: Number, require:true},
+  afiliateNumber: {type: Number, require:true},
+  vacationsDays: {type: Number, require:false}
 });
 
 // Crear el modelo Usuario
