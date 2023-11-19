@@ -1,20 +1,18 @@
+body {
+    background-color: #333;
+    color: #fff;
+}
+
 .login_Component {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
     margin-top: 60px;
-
-}
-
-.login_Component login_form {
-    margin-bottom: 10px;
 }
 
 .login_Component input[type="text"],
 .login_Component input[type="password"] {
-    width: 15%;
+width: 15%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -27,14 +25,15 @@
 .login_Component input[type="password"]:hover,
 .login_Component input[type="text"]:focus,
 .login_Component input[type="password"]:focus {
-    border-color: #4CAF50;
+    border-color: #e2c787;
     /* Cambia el color del borde al pasar el ratón o al tener el foco */
 }
 
 .login_Component button {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #e2c787;
+    color: #333;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -42,6 +41,6 @@
 }
 
 .login_Component button:hover {
-    background-color: #0e640e;
+    background-color: #a59163;
     /* Cambia el color de fondo al pasar el ratón */
 }

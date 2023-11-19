@@ -1,8 +1,8 @@
 <template class="login_component_template">
   <div class="login_Component">
-    <img alt="Login logo" src="../assets/login_Logo.png" />
+    <img alt="Login logo" src="../assets/Login_usuario.png" />
     <div class="login_form">
-      <input type="text" placeholder="Email" v-model="user_data.email"/> 
+      <input type="text" placeholder="Email" v-model="user_data.email"/>
     </div>
     <div class="login_form">
       <input type="password" placeholder="Password" v-model="user_data.password"/>
@@ -48,7 +48,7 @@ import jwt from 'jsonwebtoken'
         user_data,
         on_click
       } 
-    }
+        }
   })
 </script>
 <style scoped>
