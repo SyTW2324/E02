@@ -7,12 +7,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    margin-top: 60px;
 }
 
 .login_Component input[type="text"],
 .login_Component input[type="password"] {
-width: 15%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -30,7 +28,7 @@ width: 15%;
 }
 
 .login_Component button {
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #e2c787;
     color: #333;
     font-weight: bold;
