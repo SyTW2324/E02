@@ -5,7 +5,7 @@
       <input type="text" placeholder="Email" v-model="user_data.email"/>
     </div>
     <div class="login_form">
-      <input type="password" placeholder="Password" v-model="user_data.password"/>
+      <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="on_click"/>
     </div>
     <div class="login_form">
       <button @click="on_click">
