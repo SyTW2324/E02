@@ -1,10 +1,10 @@
 <template>
   <div class="home_Component">
     <img alt="Bienvenidos A Registro Laboral" src="../assets/Bienvenidos.png"/>
-    <div>
-      <Carousel :value="images">
+    <div class="carousel">
+      <Carousel :value="images" :numVisible="1" :numScroll="1" circular :autoplay-interval="3000">
         <template #item="{ data }">
-          <img :src=data.images alt="Imágen"/>
+          <img :src="data" alt="Funcionalidades de la aplicación" class="carousel_img"/>
         </template>
       </Carousel>
     </div>
@@ -13,6 +13,10 @@
 <script lang="ts">
 import "../styles/home_style.css"
 import Carousel from 'primevue/carousel';
+import registro from '@/assets/Registro.png';
+import cuenta from '@/assets/Cuenta.png';
+import calendario from '@/assets/Calendario.png';
+import manual from '@/assets/Manual.png';
 
   export default {
     name: 'homeComponent',
@@ -21,12 +25,7 @@ import Carousel from 'primevue/carousel';
     },
     data() {
       return {
-        images: [
-          "../assets/Registro.png",
-          "../assets/Cuenta.png",
-          "../assets/Calendario.png",
-          "../assets/Manual.png"
-        ]
+        images: [registro, cuenta, calendario, manual]
       }
     }
   }
