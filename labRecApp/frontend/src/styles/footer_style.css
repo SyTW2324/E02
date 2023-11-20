@@ -1,10 +1,5 @@
 .footer_Component {
-    position: fixed;
-    bottom: 0;
-    min-height: auto;
-    padding: 1em 0;
     text-align: center;
-    width: 99%;
     color: #c9c9c9;
     font-family: Avenir, Helvetica, Arial, sans-serif;
 }

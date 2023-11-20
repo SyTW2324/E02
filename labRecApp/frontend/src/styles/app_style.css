@@ -1,3 +1,17 @@
-body {
-    margin: 0;
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 77vh;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+}
+
+@media screen and (max-height: 600px) {
+    footer {
+        position: static;
+    }
 }
