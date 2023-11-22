@@ -11,8 +11,8 @@ import bcrypt from 'bcrypt';
 
 export const createUser = async (req:Request, res:Response): Promise<void> => {
   try {
-    const { name, surnames, email, password, user_type } = req.body;
-    const newUser = new user({ name, surnames, email, password, user_type });
+    const { name, surnames, dni, phone, email, password, administrator, afiliateNumber, vacationsDays} = req.body;
+    const newUser = new user({ name, surnames, dni, phone, email, password, administrator, afiliateNumber, vacationsDays });
     newUser.password = await bcrypt.hash(password, 5); // 5 representa el numero de rondas de hashing que bcrypt.
     await newUser.save();
     res.status(201).json(newUser);
