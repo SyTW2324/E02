@@ -1,12 +1,12 @@
 <template>
-    <div class="footer_Component">
-        <hr>
-        <img alt="logo" src="../assets/Logo.png" height="60" class="mr-2" /><br>
-        <i class="pi pi-instagram"></i>
-        <i class="pi pi-facebook"></i>
-        <i class="pi pi-twitter"></i>
-    </div>
-  </template>
+  <div class="footer_Component">
+    <hr>
+    <img alt="logo" src="../assets/Logo.png" height="60" class="mr-2" /><br>
+    <i class="pi pi-instagram"></i>
+    <i class="pi pi-facebook"></i>
+    <i class="pi pi-twitter"></i>
+  </div>
+</template>
   
   <script lang="ts">
   import 'primeicons/primeicons.css';
