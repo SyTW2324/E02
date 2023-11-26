@@ -23,6 +23,9 @@ export const userAuthentication = defineStore({
     getAuthentication(): boolean {
       return this.userAuthenticated;
     },
+    getToken(): string {
+      return this.token;
+    },
     setUserData(user: user.User_data) {
       this.token = user.token;
       this.email = user.email;
@@ -38,7 +41,6 @@ export const userAuthentication = defineStore({
     },
     getUserData() {
       return {
-        token: this.token,
         email: this.email,
         name: this.name,
         surnames: this.surnames,
