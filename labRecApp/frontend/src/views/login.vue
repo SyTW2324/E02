@@ -13,7 +13,7 @@
       </button>
     </div>
   </div>
-  <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @click="clearLoginErrorMessage"></AlertMessage>
+  <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @close="clearLoginErrorMessage"></AlertMessage>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
