@@ -1,9 +1,5 @@
-export interface User {
-  email: string
-  password: string
-}
-
 export interface User_data {
+  token: string;
   name: string;
   surnames: string;
   dni: string;

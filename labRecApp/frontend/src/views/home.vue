@@ -1,13 +1,21 @@
 <template>
-  <div class="home_Component">
-    <img alt="Bienvenidos A Registro Laboral" src="../assets/Bienvenidos.png"/>
-    <div class="carousel">
-      <Carousel :value="images" :numVisible="1" :numScroll="1" circular :autoplay-interval="3000">
-        <template #item="{ data }">
-          <img :src="data" alt="Funcionalidades de la aplicación" class="carousel_img"/>
-        </template>
-      </Carousel>
+  <div id="app">
+    <header>
+      <navbarComponent></navbarComponent>
+    </header>
+    <div class="home_Component">
+      <img alt="Bienvenidos A Registro Laboral" src="../assets/Bienvenidos.png"/>
+      <div class="carousel">
+        <Carousel :value="images" :numVisible="1" :numScroll="1" circular :autoplay-interval="3000">
+          <template #item="{ data }">
+            <img :src="data" alt="Funcionalidades de la aplicación" class="carousel_img"/>
+          </template>
+        </Carousel>
+      </div>
     </div>
+    <footer>
+      <footerComponent></footerComponent>
+    </footer>
   </div>
 </template>
 <script lang="ts">
@@ -17,11 +25,16 @@ import registro from '@/assets/Registro.png';
 import cuenta from '@/assets/Cuenta.png';
 import calendario from '@/assets/Calendario.png';
 import manual from '@/assets/Manual.png';
+import navbarComponent from "../components/navbar.vue";
+import footerComponent from "../components/footer.vue";
+import '../styles/app_style.css';
 
   export default {
     name: 'homeComponent',
     components: {
-      Carousel
+      Carousel,
+      navbarComponent,
+      footerComponent
     },
     data() {
       return {
