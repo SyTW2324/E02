@@ -5,40 +5,55 @@
       <input type="text" placeholder="Email" v-model="user_data.email"/>
     </div>
     <div class="login_form">
-      <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="on_click"/>
+      <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="clickk"/>
     </div>
     <div class="login_form">
-      <button @click="on_click">
+      <button @click="clickk">
         Login
       </button>
     </div>
   </div>
+  <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @click="clearLoginErrorMessage"></AlertMessage>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import "../styles/login_style.css"
 import { userAuthentication } from "../tools/store";
+import AlertMessage from "../components/alertMessage.vue"
 
   export default defineComponent({
     name: 'LoginComponent',
+    components: {
+      AlertMessage
+    },
     setup() {  
       const authStore = userAuthentication();
+      const errorLoginMessage = "Credenciales Inválidas"
       const user_data = {
         email: "",
         password: ""
       }  
-      const on_click = async () => {
+      const clickk = async () => {
         const response = await authStore.login(user_data);
         console.log(authStore.getUserData())
         console.log(authStore.getAuthentication());
-        // Si el response es "loged" logueamos al usuario
-        // Si es "wrong" emitimos error  
+        if (response == "Success") {
+          //Se loguea al usuario
+        } else if (response == "Error") {
+          console.log("Credenciales inválidas")
+        }
+      }
+      const clearLoginErrorMessage = () => {
+        authStore.loginError = false;
       }
       return {
         user_data,
-        on_click
+        clickk,
+        authStore,
+        errorLoginMessage,
+        clearLoginErrorMessage
       } 
-        }
+    }
   })
 </script>
 <style scoped>

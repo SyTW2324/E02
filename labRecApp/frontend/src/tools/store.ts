@@ -17,7 +17,8 @@ export const userAuthentication = defineStore({
     email: "",
     administrator: 0, 
     afiliateNumber: 0,
-    vacationsDays: 0
+    vacationsDays: 0,
+    loginError: false
   }),
   actions: {
     getAuthentication(): boolean {
@@ -73,9 +74,11 @@ export const userAuthentication = defineStore({
         const userResponseJSON = JSON.parse(JSON.stringify(userResponse.data));
         const userData = fillUserData(userResponseJSON);
         this.setUserData(userData);
+        this.loginError = false;
         return "Success"
       } catch (error) {
-        clearAuthenticationData(); //Nos aseguramos de que el store queda vacio, y el localStorage no tiene nada
+        this.loginError = true;
+        this.clearAuthenticationData(); //Nos aseguramos de que el store queda vacio, y el localStorage no tiene nada
         return "Error"
       }
     },
