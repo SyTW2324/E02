@@ -1,6 +1,7 @@
 import { defineStore, createPinia } from 'pinia';
 import * as user from '../interfaces/user_store'
 import axios from 'axios';
+import { fillUserData } from '../tools/utilities/userLogin_utilities'
 
 export const pinia = createPinia();
 
@@ -25,7 +26,6 @@ export const userAuthentication = defineStore({
     setUserData(user: user.User_data) {
       this.token = user.token;
       this.email = user.email;
-      this.userAuthenticated = user.isAunthenticated;
       this.name = user.name
       this.surnames = user.surnames
       this.dni = user.dni
@@ -33,7 +33,21 @@ export const userAuthentication = defineStore({
       this.administrator = user.administrator
       this.afiliateNumber = user.afiliateNumber
       this.vacationsDays = user.vacationsDays
+      this.userAuthenticated = true;
       // password -> Por razones de seguridad no lo almaceno
+    },
+    getUserData() {
+      return {
+        token: this.token,
+        email: this.email,
+        name: this.name,
+        surnames: this.surnames,
+        dni: this.dni,
+        phone: this.phone,
+        administrator: this.administrator,
+        afiliateNumber: this.afiliateNumber,
+        vacationsDays: this.vacationsDays,
+      }
     },
     clearAuthenticationData() {
       this.token = "null";
@@ -51,15 +65,14 @@ export const userAuthentication = defineStore({
     async login(credentials: { email: string, password: string }) {
       try {
         const userResponse = await axios.post('http://localhost:3000/users/login', credentials)
-        console.log(userResponse);
-        //const responseData: user.User_data = {
-        //  token: userResponse.data.userToken
-        //}
+        const userResponseJSON = JSON.parse(JSON.stringify(userResponse.data));
+        const userData = fillUserData(userResponseJSON);
+        this.setUserData(userData);
+        //TODO ALMACENAR EL TOKEN EL LA LOCAL STORAGE
+        return "Success"
       } catch (error) {
-        return "Error, credenciales inválidas"
+        return "Error"
       }
-
-      //TODO ALMACENAR EL TOKEN EL LA LOCAL STORAGE
     },
   }
 })

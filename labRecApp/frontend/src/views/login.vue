@@ -27,9 +27,10 @@ import { userAuthentication } from "../tools/store";
         email: "",
         password: ""
       }  
-      const on_click = () => {
-        const response = authStore.login(user_data);
-        console.log(response);
+      const on_click = async () => {
+        const response = await authStore.login(user_data);
+        console.log(authStore.getUserData())
+        console.log(authStore.getAuthentication());
         // Si el response es "loged" logueamos al usuario
         // Si es "wrong" emitimos error  
       }

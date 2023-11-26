@@ -1,6 +1,5 @@
 export interface User_data {
   token: string;
-  isAunthenticated: boolean;
   name: string;
   surnames: string;
   dni: string;
