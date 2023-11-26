@@ -20,6 +20,7 @@ import { defineComponent } from "vue";
 import "../styles/login_style.css"
 import { userAuthentication } from "../tools/store";
 import AlertMessage from "../components/alertMessage.vue"
+import { useRouter } from 'vue-router';
 
   export default defineComponent({
     name: 'LoginComponent',
@@ -28,6 +29,7 @@ import AlertMessage from "../components/alertMessage.vue"
     },
     setup() {  
       const authStore = userAuthentication();
+      const router = useRouter();
       const errorLoginMessage = "Credenciales Inválidas"
       const user_data = {
         email: "",
@@ -38,7 +40,8 @@ import AlertMessage from "../components/alertMessage.vue"
         console.log(authStore.getUserData())
         console.log(authStore.getAuthentication());
         if (response == "Success") {
-          //Se loguea al usuario
+          //Redirigimos al usuario a la página principal de la aplicación
+          router.push('/mainPage')
         } else if (response == "Error") {
           console.log("Credenciales inválidas")
         }
