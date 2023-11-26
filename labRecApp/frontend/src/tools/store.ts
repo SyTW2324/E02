@@ -21,6 +21,7 @@ export const userAuthentication = defineStore({
   }),
   actions: {
     getAuthentication(): boolean {
+      // TODO REALIZAR EXPIRACION DE TIEMPO
       return this.userAuthenticated;
     },
     getToken(): string {
@@ -37,7 +38,7 @@ export const userAuthentication = defineStore({
       this.afiliateNumber = user.afiliateNumber
       this.vacationsDays = user.vacationsDays
       this.userAuthenticated = true;
-      // password -> Por razones de seguridad no lo almaceno
+      //TODO Almacenar el token en el localStorage
     },
     getUserData() {
       return {
@@ -62,7 +63,7 @@ export const userAuthentication = defineStore({
       this.administrator = 0;
       this.afiliateNumber = 0;
       this.vacationsDays = 0;
-      //TODO localStorage.removeItem('token');
+      //TODO Eliminar el token del localStorage 
     },
     async login(credentials: { email: string, password: string }) {
       try {
