@@ -17,32 +17,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "../styles/login_style.css"
-import axios from 'axios';
-import jwt from 'jsonwebtoken'
+import { userAuthentication } from "../tools/store";
 
   export default defineComponent({
     name: 'LoginComponent',
-    setup() {   
+    setup() {  
+      const authStore = userAuthentication();
       const user_data = {
         email: "",
         password: ""
       }  
       const on_click = () => {
-        // console.log(user_data.email)
-        // console.log(user_data.password)
-        const data = {
-          email: user_data.email,
-          password: user_data.password
-        }
-
-        axios.post('http://localhost:3000/users/login', data)
-          .then(response => {
-            console.log(response.data)
-        })
-        .catch(error => {
-          console.error('Error de autentificación: ', error);
-        });
-
+        const response = authStore.login(user_data);
+        console.log(response);
+        // Si el response es "loged" logueamos al usuario
+        // Si es "wrong" emitimos error  
       }
       return {
         user_data,
