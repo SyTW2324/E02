@@ -38,7 +38,8 @@ export const userAuthentication = defineStore({
       this.afiliateNumber = user.afiliateNumber
       this.vacationsDays = user.vacationsDays
       this.userAuthenticated = true;
-      //TODO Almacenar el token en el localStorage
+      //Se almacena el Token en el localStorage del navegador
+      localStorage.setItem('Token', this.token);
     },
     getUserData() {
       return {
@@ -63,7 +64,8 @@ export const userAuthentication = defineStore({
       this.administrator = 0;
       this.afiliateNumber = 0;
       this.vacationsDays = 0;
-      //TODO Eliminar el token del localStorage 
+      //Se elimina el token del localStorage 
+      localStorage.removeItem('Token');
     },
     async login(credentials: { email: string, password: string }) {
       try {
@@ -71,9 +73,9 @@ export const userAuthentication = defineStore({
         const userResponseJSON = JSON.parse(JSON.stringify(userResponse.data));
         const userData = fillUserData(userResponseJSON);
         this.setUserData(userData);
-        //TODO ALMACENAR EL TOKEN EL LA LOCAL STORAGE
         return "Success"
       } catch (error) {
+        clearAuthenticationData(); //Nos aseguramos de que el store queda vacio, y el localStorage no tiene nada
         return "Error"
       }
     },
