@@ -10,10 +10,12 @@ export const userLoginValidator = async (req: Request, res: Response): Promise<v
         const usuario = await user.findOne({ email }); 
         if (!usuario) {
             res.status(401).json({ error: 'Credenciales invalidas' })
+            return;
         } else {
             const validPwd = await bcrypt.compare(password, usuario.password) 
             if (!validPwd) {
                 res.status(401).json({ error: 'Credenciales invalidas' })
+                return
             }
         }
 
