@@ -1,17 +1,25 @@
 <template class="login_component_template">
-  <div class="login_Component">
-    <img alt="Login logo" src="../assets/Login_usuario.png" />
-    <div class="login_form">
-      <input type="text" placeholder="Email" v-model="user_data.email"/>
+  <div id="app">
+    <header>
+      <navbarComponent></navbarComponent>
+    </header>
+    <div class="login_Component">
+      <img alt="Login logo" src="../assets/Login_usuario.png" />
+      <div class="login_form">
+        <input type="text" placeholder="Email" v-model="user_data.email"/>
+      </div>
+      <div class="login_form">
+        <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="clickk"/>
+      </div>
+      <div class="login_form">
+        <button @click="clickk">
+          Login
+        </button>
+      </div>
     </div>
-    <div class="login_form">
-      <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="clickk"/>
-    </div>
-    <div class="login_form">
-      <button @click="clickk">
-        Login
-      </button>
-    </div>
+    <footer>
+      <footerComponent></footerComponent>
+    </footer>
   </div>
   <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @close="clearLoginErrorMessage"></AlertMessage>
 </template>
@@ -21,11 +29,16 @@ import "../styles/login_style.css"
 import { userAuthentication } from "../tools/store";
 import AlertMessage from "../components/alertMessage.vue"
 import { useRouter } from 'vue-router';
+import navbarComponent from "../components/navbar.vue";
+import footerComponent from "../components/footer.vue";
+import '../styles/app_style.css';
 
   export default defineComponent({
     name: 'LoginComponent',
     components: {
-      AlertMessage
+      AlertMessage,
+      navbarComponent,
+  footerComponent
     },
     setup() {  
       const authStore = userAuthentication();
