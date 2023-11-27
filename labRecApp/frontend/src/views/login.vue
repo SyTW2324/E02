@@ -1,5 +1,5 @@
 <template class="login_component_template">
-  <div id="app">
+  <div class="app">
     <header>
       <navbarComponent></navbarComponent>
     </header>

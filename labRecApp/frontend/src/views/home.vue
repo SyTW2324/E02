@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <header>
       <navbarComponent></navbarComponent>
     </header>
@@ -27,7 +27,6 @@ import calendario from '@/assets/Calendario.png';
 import manual from '@/assets/Manual.png';
 import navbarComponent from "../components/navbar.vue";
 import footerComponent from "../components/footer.vue";
-import '../styles/app_style.css';
 
   export default {
     name: 'homeComponent',

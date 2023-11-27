@@ -1,30 +1,38 @@
-* {
-    font-family: 'Segoe UI', Tahoma;
-    font-size: medium;
-}
-
-body {
-    background-color: #333;
-    color: #fff;
-}
-
-.home_Component {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    position: relative;
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .carousel_img{
-    width: 670px;
+    max-width: 100%;
     height: auto;
+    width: device-width;
+    align-items: center;
 }
 
 .carousel {
-    width: 800px;
+    margin: 0 auto;
+    max-width: 800px;
+    width: device-width;
+}
+
+.home_Component button {
+    cursor: pointer !important;
+    background-color: #c9c9c9 !important;
+    color: #565d6a;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 4px !important;
 }
 
 .p-carousel-indicators .p-link[tabindex="0"]{
-    background-color: #b28d53;
+    background-color: #b28d53 !important;
+}
+
+.home_Component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
