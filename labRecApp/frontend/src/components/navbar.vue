@@ -3,7 +3,7 @@
     <div class="card relative z-2">
       <Menubar :model="items" class="navbarmenu">
         <template #start>
-          <img alt="logo" src="../assets/Logo.png" height="60" class="mr-2" />
+          <a href="/"><img alt="logo" src="../assets/Logo.png" height="60" class="mr-2"/></a>
         </template>
       </Menubar>
     </div>
@@ -11,9 +11,6 @@
 </template>
 
 <script lang="ts">
-import 'primeicons/primeicons.css';
-import 'primevue/resources/themes/saga-blue/theme.css';
-import 'primevue/resources/primevue.min.css';
 import Menubar from 'primevue/menubar';
 import "../styles/navbar_style.css"
 

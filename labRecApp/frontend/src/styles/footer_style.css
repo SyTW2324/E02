@@ -4,10 +4,14 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.footer_Component i {
+.footer_Component a {
     float: middle;
     margin: 5px;
     color: #b28d53;
+}
+
+a:link, a:visited, a:active {
+    text-decoration: none;
 }
 
 .footer_Component hr {

@@ -1,10 +1,11 @@
 <template>
   <div class="footer_Component">
     <hr>
-    <img alt="logo" src="../assets/Logo.png" height="60" class="mr-2" /><br>
-    <i class="pi pi-instagram"></i>
-    <i class="pi pi-facebook"></i>
-    <i class="pi pi-twitter"></i>
+    <a href="/"><img alt="logo" src="../assets/Logo.png" height="60" class="mr-2"/></a><br>
+    <a class="pi pi-instagram" href="https://www.instagram.com/" target="_blank"></a>
+    <a class="pi pi-facebook" href="https://www.facebook.com/" target="_blank"></a>
+    <a class="pi pi-twitter" href="https://twitter.com/" target="_blank"></a>
+    <a class="pi pi-github" href="https://github.com/SyTW2324/E02.git" target="_blank"></a>
   </div>
 </template>
   
