@@ -20,8 +20,8 @@
     <footer>
       <footerComponent></footerComponent>
     </footer>
+    <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @close="clearLoginErrorMessage"></AlertMessage>
   </div>
-  <AlertMessage :show="authStore.loginError" :errorMessage="errorLoginMessage" @close="clearLoginErrorMessage"></AlertMessage>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -38,7 +38,7 @@ import '../styles/app_style.css';
     components: {
       AlertMessage,
       navbarComponent,
-  footerComponent
+      footerComponent
     },
     setup() {  
       const authStore = userAuthentication();
@@ -69,7 +69,19 @@ import '../styles/app_style.css';
         errorLoginMessage,
         clearLoginErrorMessage
       } 
-    }
+    },  
+    data() {
+      return {
+        isValidEmail: true,
+      };
+    },
+    methods: {
+      validateEmail() {
+        // Expresión regular para validar el formato del correo electrónico
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        this.isValidEmail = emailRegex.test(this.user_data.email);
+      },
+    },
   })
 </script>
 <style scoped>
