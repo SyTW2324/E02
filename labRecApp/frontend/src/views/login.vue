@@ -6,7 +6,7 @@
     <div class="login_Component">
       <img alt="Login logo" src="../assets/Login_usuario.png" />
       <div class="login_form">
-        <input type="text" placeholder="Email" v-model="user_data.email"/>
+        <input type="text" placeholder="Email" v-model="user_data.email" @input="validateEmail" :class="{valid: isValidEmail == true && user_data.email.length > 0, invalid: isValidEmail == false}"/>
       </div>
       <div class="login_form">
         <input type="password" placeholder="Password" v-model="user_data.password" @keyup.enter="clickk"/>
@@ -78,7 +78,7 @@ import '../styles/app_style.css';
     methods: {
       validateEmail() {
         // Expresión regular para validar el formato del correo electrónico
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@labrecordapp.es/;
         this.isValidEmail = emailRegex.test(this.user_data.email);
       },
     },
