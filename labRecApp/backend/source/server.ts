@@ -12,7 +12,7 @@ mongoose.connect(config.mongoURI); // pasamos la URI de nuestra base de datos en
 // Configuramos el servidor express
 
 const app = express();
-const PORT = 8080;
+const PORT = 3000;
 app.use(express.json());// Usamos el middleware .json() para que las peticiones a la API se parseen en formato json
 app.use(cors());
 // Evitamos el problema de no poder recibir solicitudes desde el front
