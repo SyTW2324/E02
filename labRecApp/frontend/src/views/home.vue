@@ -1,10 +1,10 @@
 <template>
-  <div class="app">
+  <div class="app" id="home">
     <header>
       <navbarComponent></navbarComponent>
     </header>
     <div class="home_Component">
-      <img alt="Bienvenidos A Registro Laboral" src="../assets/Bienvenidos.png"/>
+      <img class="bienvenidos" alt="Bienvenidos A Registro Laboral" src="../assets/Bienvenidos.png"/>
       <div class="carousel">
         <Carousel :value="images" :numVisible="1" :numScroll="1" circular :autoplay-interval="3000">
           <template #item="{ data }">

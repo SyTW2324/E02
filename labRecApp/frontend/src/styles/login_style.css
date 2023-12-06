@@ -5,6 +5,12 @@
     min-height: 100vh;
 }
 
+@media screen and (max-height: 615px) {
+    #login footer, #login header {
+        position: static;
+    }
+}
+
 .login_Component input[type="text"],
 .login_Component input[type="password"] {
     padding: 10px;
