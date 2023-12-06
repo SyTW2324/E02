@@ -1,0 +1,12 @@
+{
+  "name": "laboral_register_app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm run start-backend && npm run start-frontend",
+    "start-backend": "cd backend && pm2 start source/server.ts",
+    "start-frontend": "cd frontend && nohup http.server dist/ -a *adress* -p *puerto*",
+    "stop": "npm run stop-backend && npm run stop-frontend",
+    "stop-backend": "cd backend && pm2 stop source/server.ts",
+    "stop-frontend": "cd frontend && pkill 'http-server -a *adress* -p *puerto*'"
+  }
+}
