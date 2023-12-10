@@ -7,7 +7,9 @@
     "start-frontend": "cd labRecApp/frontend && nohup http.server dist/ -a *adress* -p *puerto*",
     "stop": "npm run stop-backend && npm run stop-frontend",
     "stop-backend": "cd labRecApp/backend && pm2 stop source/server.ts",
-    "stop-frontend": "cd labRecApp/frontend && pkill 'http-server -a *adress* -p *puerto*'"
+    "stop-frontend": "cd labRecApp/frontend && pkill 'http-server -a *adress* -p *puerto*'",
+    "install-backend-dependences": "cd labRecApp/backend && npm install",
+    "test": "cd labRecApp/backend && npm run test"
   },
   "repository": {
     "type": "git",
