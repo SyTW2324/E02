@@ -14,4 +14,4 @@
 
 Laboral Record App is an application designed to streamline the process for companies when recording the work hours of their employees.
 
-It's an open beta phase, so possible some features are not yet available, to whatch it [click here](https://deluxe-gumption-203dc5.netlify.app/).
+It's an open beta phase, so possible some features are not yet available. To view the application [click here](https://deluxe-gumption-203dc5.netlify.app/).
