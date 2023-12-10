@@ -8,5 +8,9 @@
     "stop": "npm run stop-backend && npm run stop-frontend",
     "stop-backend": "cd labRecApp/backend && pm2 stop source/server.ts",
     "stop-frontend": "cd labRecApp/frontend && pkill 'http-server -a *adress* -p *puerto*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SyTW2324/E02.git"
   }
 }
