@@ -25,10 +25,14 @@
     "nodemon": "^3.0.1",
     "pinia": "^2.1.7",
     "pm2": "^5.3.0",
-    "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.15"
+    "@types/chai": "^4.3.11",
+    "@types/cors": "^2.8.15",
+    "@types/mocha": "^10.0.6",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "ts-node": "^10.9.2"
   }
 }
