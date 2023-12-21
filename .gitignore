@@ -8,6 +8,7 @@ labRecApp/frontend/pnpm-debug.log*
 labRecApp/frontend/lerna-debug.log*
 
 labRecApp/backend/node_modules
+labRecApp/backend/.nyc_output
 labRecApp/frontend/node_modules
 labRecApp/frontend/.DS_Store
 labRecApp/frontend/dist
