@@ -70,7 +70,7 @@ export const userAuthentication = defineStore({
     },
     async login(credentials: { email: string, password: string }) {
       try {
-        const userResponse = await axios.post('http://localhost:3000/users/login', credentials)
+        const userResponse = await axios.post('https://perfect-cod-pantsuit.cyclic.app/users/login', credentials)
         const userResponseJSON = JSON.parse(JSON.stringify(userResponse.data));
         const userData = fillUserData(userResponseJSON);
         this.setUserData(userData);
