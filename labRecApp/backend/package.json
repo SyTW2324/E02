@@ -4,7 +4,7 @@
   "description": "Backend de la aplicacion Registro_Laboral_APP",
   "main": "source/server.ts",
   "scripts": {
-    "start": "nodemon source/server.ts",
+    "start": "node build/server.js",
     "dev": "nodemon source/server.ts",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -rf .nyc_output",
     "build": "npm install && npm run build-deploy",
