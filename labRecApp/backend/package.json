@@ -7,7 +7,8 @@
     "start": "nodemon source/server.ts",
     "dev": "nodemon source/server.ts",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls && rm -rf .nyc_output",
-    "build": "rm -rf build/ && prettier --write source/ && tsc",
+    "build": "npm install && npm run build-deploy",
+    "build-deploy": "rm -rf build/ && prettier --write source/ && tsc",
     "test": "mocha --require ts-node/register source/tests/**/*.spec.ts"
   },
   "author": "@Adrian-glz01",
