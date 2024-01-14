@@ -1,7 +1,7 @@
 <template>
   <div class="card relative z-2 navbar">
     <div class="card relative z-2">
-      <Menubar :model="items" class="navbarmenu" @item="handleMenuVarInconClick">
+      <Menubar :model="items" class="navbarmenu" @click="handleNavbarClick">
         <template #start>
           <a href=""><img alt="logo" src="../assets/Logo.png" height="60" class="logo"/></a>
         </template>
@@ -85,13 +85,14 @@ export default {
     Menubar
   },
   setup() {
-    const handleMenuVarInconClick = (event: any) => {
-      const id = event.items.label
-      console.log("Hola")
-      console.log(id)
-    }
+    // Función para manejar el clic en la barra de navegación
+    const handleNavbarClick = (event: any) => {
+      const clickedItemLabel = event.item.label;
+      console.log("Se clickea: ")
+      console.log(clickedItemLabel)
+    };
     return {
-      handleMenuVarInconClick
+      handleNavbarClick
     }
   }
 }
