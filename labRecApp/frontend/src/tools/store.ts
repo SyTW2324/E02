@@ -52,6 +52,7 @@ export const userAuthentication = defineStore({
         administrator: this.administrator,
         afiliateNumber: this.afiliateNumber,
         vacationsDays: this.vacationsDays,
+        token: this.token
       }
     },
     clearAuthenticationData() {

@@ -13,6 +13,8 @@
 <script lang="ts">
 import Menubar from 'primevue/menubar';
 import "../styles/mainNavbar_style.css"
+import { userAuthentication } from "../tools/store";
+import { useRouter } from 'vue-router';
 
 export default {
   data() {
@@ -22,8 +24,15 @@ export default {
     Menubar
   },
   setup() {
+    const authStore = userAuthentication();
+    const router = useRouter();
     const logout = () => {
-      console.log("Esta entrando aqui ...")
+      //console.log("Esta entrando aqui ...")
+
+      // limpiamos los datos del usuario
+      authStore.clearAuthenticationData();
+      // enviamos al usuario a la pagina de inicio
+      router.push('/');
     } 
 
     const items = [
