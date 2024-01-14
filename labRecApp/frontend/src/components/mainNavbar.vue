@@ -88,8 +88,9 @@ export default {
     // Función para manejar el clic en la barra de navegación
     const handleNavbarClick = (event: any) => {
       var clickedItemLabel = "defecto";
-      if (event && event.item && event.item.label) {
-        clickedItemLabel = event.item.label;
+      if (event) {
+        console.log("entra aqui")
+        //clickedItemLabel = event.item.label;
       }
       console.log("Se clickea: ")
       console.log(clickedItemLabel)
