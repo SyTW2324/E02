@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+@media screen and (max-height: 270px) {
+    #mainPage footer, #mainPage header {
+        position: static;
+    }
+}

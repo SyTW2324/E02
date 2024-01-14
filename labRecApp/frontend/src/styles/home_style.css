@@ -5,7 +5,20 @@
     min-height: 100vh;
 }
 
+@media screen and (max-height: 500px){
+    #home footer, #home header {
+        position: static;
+    }
+}
+
 .carousel_img{
+    max-width: 100%;
+    height: auto;
+    width: device-width;
+    align-items: center;
+}
+
+.bienvenidos{
     max-width: 100%;
     height: auto;
     width: device-width;
@@ -25,6 +38,7 @@
     border: none !important;
     padding: 0 !important;
     border-radius: 4px !important;
+    width: 30px !important;
 }
 
 .p-carousel-indicators .p-link[tabindex="0"]{
