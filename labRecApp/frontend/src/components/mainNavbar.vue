@@ -86,7 +86,8 @@ export default {
   },
   setup() {
     const handleMenuVarInconClick = (event: any) => {
-      const id = event.item.label
+      const id = event.items.label
+      console.log("Hola")
       console.log(id)
     }
     return {
