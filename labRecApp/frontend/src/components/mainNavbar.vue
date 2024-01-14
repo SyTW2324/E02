@@ -1,7 +1,7 @@
 <template>
   <div class="card relative z-2 navbar">
     <div class="card relative z-2">
-      <Menubar :model="items" class="navbarmenu">
+      <Menubar :model="items" class="navbarmenu" @item="handleMenuVarInconClick">
         <template #start>
           <a href=""><img alt="logo" src="../assets/Logo.png" height="60" class="logo"/></a>
         </template>
@@ -83,6 +83,15 @@ export default {
   name: "mainNavbarComponent",
   components: {
     Menubar
+  },
+  setup() {
+    const handleMenuVarInconClick = (event: any) => {
+      const id = event.item.label
+      console.log(id)
+    }
+    return {
+      handleMenuVarInconClick
+    }
   }
 }
 </script>
