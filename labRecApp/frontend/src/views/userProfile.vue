@@ -1,9 +1,8 @@
 <template>
+    <header>
+      <mainNavbarComponent></mainNavbarComponent>
+    </header>
     <div class="user-profile">
-        <header>
-          <mainNavbarComponent></mainNavbarComponent>
-        </header>
-        <!-- Cuerpo de los datos del perfil-->
         <div class="profile-header">
             <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
             <div class="user-info">
@@ -43,11 +42,10 @@
                 <p>{{ getUserVacationAvailableDays() }}</p>
             </div>
         </div>
-        <!-- Pie de pagina de la aplicacion-->
-        <footer>
-          <footerComponent></footerComponent>
-        </footer>
     </div>
+    <footer>
+      <footerComponent></footerComponent>
+    </footer>
 </template>
 
 <script lang="ts">
