@@ -1,9 +1,9 @@
 <template>
     <div class="user-profile">
         <div class="profile-header">
-            <img :src="getUserPhoto" alt="User Photo" class="profile-photo" />
+            <img :src="getUserPhoto()" alt="User Photo" class="profile-photo" />
             <div class="user-info">
-                <h2>{{ getUserFullName }}</h2>
+                <h2>{{ getUserFullName() }}</h2>
             </div>
         </div>
 
@@ -12,19 +12,19 @@
             <table>
                 <tr>
                     <td>Email:</td>
-                    <td>{{ getUserEmail }}</td>
+                    <td>{{ getUserEmail() }}</td>
                 </tr>
                 <tr>
                     <td>Número de Teléfono:</td>
-                    <td>{{ getUserPhone }}</td>
+                    <td>{{ getUserPhone() }}</td>
                 </tr>
                 <tr>
                     <td>Dni:</td>
-                    <td>{{ getUserDni }}</td>
+                    <td>{{ getUserDni() }}</td>
                 </tr>
                 <tr>
                     <td>Rol:</td>
-                    <td>{{ getUserRol }}</td>
+                    <td>{{ getUserRol() }}</td>
                 </tr>
             </table>
         </div>
@@ -32,11 +32,11 @@
         <div class="extra-info-panel">
             <div class="panel-item">
                 <h3>Número de Seguridad Social</h3>
-                <p>{{ getUserSecurityNumber }}</p>
+                <p>{{ getUserSecurityNumber() }}</p>
             </div>
             <div class="panel-item">
                 <h3>Días Trabajados</h3>
-                <p>{{ getUserVacationAvailableDays }}</p>
+                <p>{{ getUserVacationAvailableDays() }}</p>
             </div>
             <!-- Agrega más paneles según la información adicional que desees mostrar -->
         </div>
