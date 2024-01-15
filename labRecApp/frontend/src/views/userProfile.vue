@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import "../styles/userProfile_style.css"
+// import "../styles/userProfile_style.css"
 import { userAuthentication } from "../tools/store";
 export default {
     data() {
@@ -117,4 +117,60 @@ export default {
 </script>
 
 <style scoped>
+.user-profile {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.user-info {
+    h2 {
+        margin: 0;
+    }
+}
+
+.profile-details {
+    margin-top: 20px;
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+
+        tr {
+            td {
+                padding: 8px;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    }
+}
+
+.extra-info-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .panel-item {
+        flex: 1;
+        margin-right: 20px;
+
+        h3 {
+            margin-bottom: 10px;
+        }
+    }
+}
 </style>
