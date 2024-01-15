@@ -49,38 +49,49 @@ export default {
             return "../assets/Login_usuario.png"
         }
 
-        const getUserName = () => {
-            authStore.name ? authStore.name : "null"; 
-        }
-
-        const getUserSurnames = () => {
-            authStore.surnames ? authStore.surnames : "null";
+        const getUserFullName = () => {
+            var fullName = "";
+            authStore.name ? fullName += authStore.name : "null";
+            if (authStore.surnames) {
+                fullName += " "
+                fullName += authStore.surnames
+            }
+            return fullName;
         }
 
         const getUserDni = () => {
-            authStore.dni ? authStore.dni : "null";
+            var dni_ = ""
+            authStore.dni ? dni_ = authStore.dni : dni_ = "null";
+            return dni_;
         }
 
         const getUserPhone = () => {
-            authStore.phone ? authStore.phone : "null";
+            var userPhone;
+            authStore.phone ? userPhone = authStore.phone : userPhone = "null";
+            return userPhone;
         }
 
         const getUserEmail = () => {
-            authStore.email ? authStore.email : "null";
+            var userEmail;
+            authStore.email ? userEmail = authStore.email : userEmail = "null";
+            return userEmail;
         }
 
         const getUserRol = () => {
-            authStore.administrator == 1 ? "Administrador" : "Empleado"
+            var userRol;
+            authStore.administrator == 1 ? userRol = "Administrador" : userRol = "Empleado"
+            return userRol;
         }
 
         const getUserVacationAvailableDays = () => {
-            authStore.vacationsDays ? authStore.vacationsDays : "No hay vacaciones,trabaja";
+            var userVacationAvailableDays;
+            authStore.vacationsDays ? userVacationAvailableDays = authStore.vacationsDays : userVacationAvailableDays = "No hay vacaciones,trabaja";
+            return userVacationAvailableDays;
         }
 
         return {
             getUserPhoto,
-            getUserName,
-            getUserSurnames,
+            getUserFullName,
             getUserDni,
             getUserPhone,
             getUserEmail,
