@@ -30,11 +30,11 @@
                 </table>
             </div>
         </div>
-        
+
         <div class="security-number-container">
             <!--<div class="extra-info-panel">-->
             <div class="panel-item">
-                <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
+                <h3 class="golden-text medium-text" >Número de Identifiación de la empresa</h3>
                 <p class="small-text" >{{ getUserSecurityNumber() }}</p>
             </div>
         </div>
