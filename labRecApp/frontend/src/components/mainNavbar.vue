@@ -7,6 +7,7 @@
         </template>
       </Menubar>
     </div>
+    <RegisterForm v-if="registerRequest" />
   </div>
 </template>
 
@@ -15,13 +16,15 @@ import Menubar from 'primevue/menubar';
 import "../styles/mainNavbar_style.css"
 import { userAuthentication } from "../tools/store";
 import { useRouter } from 'vue-router';
+import RegisterForm from "../components/registerForm.vue"
 
 export default {
   data() {
   },
   name: "mainNavbarComponent",
   components: {
-    Menubar
+    Menubar,
+    RegisterForm
   },
   setup() {
     const authStore = userAuthentication();
