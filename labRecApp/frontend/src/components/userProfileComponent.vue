@@ -7,36 +7,39 @@
             </div>
         </div>
 
-        <div class="profile-details">
-            <h3 class="golden-text medium-text" >Datos del Usuario</h3>
-            <table>
-                <tr>
-                    <td class="small-text-bold">Email:</td>
-                    <td class="small-text">{{ getUserEmail() }}</td>
-                </tr>
-                <tr>
-                    <td class="small-text-bold">Número de Teléfono:</td>
-                    <td class="small-text">{{ getUserPhone() }}</td>
-                </tr>
-                <tr>
-                    <td class="small-text-bold">Dni:</td>
-                    <td class="small-text">{{ getUserDni() }}</td>
-                </tr>
-                <tr>
-                    <td class="small-text-bold">Rol:</td>
-                    <td class="small-text">{{ getUserRol() }}</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="extra-info-panel">
-            <div class="panel-item">
-                <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
-                <p class="small-text" >{{ getUserSecurityNumber() }}</p>
+        <div class="profile-details-container">
+            <div class="profile-details">
+                <h3 class="golden-text medium-text" >Datos del Usuario</h3>
+                <table>
+                    <tr>
+                        <td class="small-text-bold">Email:</td>
+                        <td class="small-text">{{ getUserEmail() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="small-text-bold">Número de Teléfono:</td>
+                        <td class="small-text">{{ getUserPhone() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="small-text-bold">Dni:</td>
+                        <td class="small-text">{{ getUserDni() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="small-text-bold">Rol:</td>
+                        <td class="small-text">{{ getUserRol() }}</td>
+                    </tr>
+                </table>
             </div>
-            <div class="panel-item">
-                <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
-                <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
+        </div>
+        <div class="extra-info-panel-container">
+            <div class="extra-info-panel">
+                <div class="panel-item">
+                    <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
+                    <p class="small-text" >{{ getUserSecurityNumber() }}</p>
+                </div>
+                <div class="panel-item">
+                    <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
+                    <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
+                </div>
             </div>
         </div>
     </div>
@@ -116,4 +119,5 @@ export default {
 };
 </script>
 <style scoped>
+
 </style>

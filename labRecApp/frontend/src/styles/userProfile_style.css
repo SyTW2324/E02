@@ -77,3 +77,21 @@
 .small-text {
     font-size: 16px;
 }
+
+.profile-details-container {
+    background-color: #f5f5f5;
+    /* Color de fondo para Datos del Usuario */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.extra-info-panel-container {
+    background-color: #f5f5f5;
+    /* Color de fondo para Número de Seguridad Social y Días de vacaciones disponibles */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
