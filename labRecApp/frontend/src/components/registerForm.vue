@@ -4,7 +4,7 @@
             <label for="action">Acción:</label>
             <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label"/>
 
-            <div v-if="selectedAction === 'pausa'">
+            <div v-if="selectedAction && selectedAction.value === 'pausa'">
                 <label for="reason">Motivo de pausa:</label>
                 <Dropdown v-model="selectedReason" :options="reasonOptions" optionLabel="label" />
             </div>
