@@ -35,15 +35,19 @@ export default {
       router.push('/');
     } 
 
+    const redirectToProfie = () => {
+      router.push('/profile')
+    }
+
     const items = [
       {
         label: 'Mi cuenta',
         icon: 'pi pi-fw pi-user',
         items: [
           {
-            label: 'Datos',
+            label: 'Perfil',
             icon: 'pi pi-fw pi-align-justify',
-            to: ''
+            command: redirectToProfie
           },
           {
             label: 'Cambiar la contraseña',
