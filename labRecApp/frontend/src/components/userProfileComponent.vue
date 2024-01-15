@@ -3,12 +3,12 @@
         <div class="profile-header">
             <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
             <div class="user-info">
-                <h2>{{ getUserFullName() }}</h2>
+                <h2 class="golden-text" >{{ getUserFullName() }}</h2>
             </div>
         </div>
 
         <div class="profile-details">
-            <h3>Datos del Usuario</h3>
+            <h3 class="golden-text" >Datos del Usuario</h3>
             <table>
                 <tr>
                     <td>Email:</td>
@@ -31,11 +31,11 @@
 
         <div class="extra-info-panel">
             <div class="panel-item">
-                <h3>Número de Seguridad Social</h3>
+                <h3 class="golden-text" >Número de Seguridad Social</h3>
                 <p>{{ getUserSecurityNumber() }}</p>
             </div>
             <div class="panel-item">
-                <h3>Días de vacacaciones disponibles</h3>
+                <h3 class="golden-text" >Días de vacacaciones disponibles</h3>
                 <p>{{ getUserVacationAvailableDays() }}</p>
             </div>
         </div>
