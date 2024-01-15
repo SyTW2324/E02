@@ -3,7 +3,7 @@
     <div class="card relative z-2">
       <Menubar :model="items" class="navbarmenu">
         <template #start>
-          <a href=""><img alt="logo" src="../assets/Logo.png" height="60" class="logo"/></a>
+          <a><img alt="logo" src="../assets/Logo.png" height="60" class="logo" @click="redirectToMainPage()"/></a>
         </template>
       </Menubar>
     </div>
@@ -37,6 +37,10 @@ export default {
 
     const redirectToProfie = () => {
       router.push('/profile')
+    }
+
+    const redirectToMainPage = () => {
+      router.push('/mainPage')
     }
 
     const items = [
@@ -100,7 +104,8 @@ export default {
     ];
 
     return {
-      items
+      items,
+      redirectToMainPage
     }
   }
 }
