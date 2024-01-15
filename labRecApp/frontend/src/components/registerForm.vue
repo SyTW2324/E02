@@ -13,6 +13,10 @@
             <Calendar v-model="selectedDateTime" showTime />
 
             <button @click="submitForm">Enviar</button>
+
+            <div v-if="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
         </div>
     </div>
 </template>
@@ -38,6 +42,7 @@ export default {
         const selectedAction = ref();
         const selectedReason = ref();
         const selectedDateTime = ref(null);
+        const errorMessage = ref("");
 
         const actionOptions = [
             { label: "Iniciar jornada", value: "iniciar" },
@@ -56,6 +61,12 @@ export default {
         ];
 
         const submitForm = () => {
+            // Verifica si los campos obligatorios están llenos
+            if (!selectedAction.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value) ) {
+                errorMessage.value = "Por favor, complete todos los campos obligatorios.";
+                return;
+            }
+
             const formData = {
                 action: "",
                 reason: "",
@@ -76,6 +87,7 @@ export default {
             actionOptions,
             reasonOptions,
             submitForm,
+            errorMessage
         };
     },
 };
@@ -112,7 +124,12 @@ export default {
     margin-bottom: 15px;
 }
 .required {
-    color: red;
+    color: rgb(168, 27, 27);
     margin-left: 3px;
+}
+
+.error-message {
+    color: rgb(168, 27, 27);
+    margin-top: 10px;
 }
 </style>
