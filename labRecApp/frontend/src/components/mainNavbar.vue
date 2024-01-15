@@ -7,7 +7,7 @@
         </template>
       </Menubar>
     </div>
-    <RegisterForm v-if="registerRequest" />
+    <RegisterForm :showForm="registerRequest" @close="closeRegister()" />
   </div>
 </template>
 
@@ -49,6 +49,10 @@ export default {
 
     const openRegister = () => {
       registerRequest = true;
+    }
+
+    const closeRegister = () => {
+      registerRequest = false;
     }
 
     const items = [
@@ -114,7 +118,8 @@ export default {
     return {
       items,
       redirectToMainPage,
-      registerRequest
+      registerRequest,
+      closeRegister
     }
   }
 }
