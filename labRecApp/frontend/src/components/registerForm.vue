@@ -97,41 +97,41 @@ export default {
 
 <style scoped>
 .register-form {
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo semitransparente */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container {
-    background-color: #cac9c9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    /* Ajusta el ancho según tus necesidades */
-    margin: auto;
+  background-color: #cac9c9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: auto;
 }
 
-/* Estilo para separación entre preguntas */
-.form-container label,
-.form-container .p-dropdown,
-.form-container .p-calendar {
-    margin-bottom: 15px;
+.form-group {
+  margin-bottom: 20px;
 }
+
+.full-width {
+  width: 100%;
+}
+
 .required {
-    color: rgb(168, 27, 27);
-    margin-left: 3px;
+  color: rgb(168, 27, 27);
+  margin-left: 3px;
 }
 
 .error-message {
-    color: rgb(168, 27, 27);
-    margin-top: 10px;
+  color: rgb(168, 27, 27);
+  margin-top: 10px;
 }
 </style>
