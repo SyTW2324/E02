@@ -1,7 +1,9 @@
 <template>
-    <header>
-      <mainNavbarComponent></mainNavbarComponent>
-    </header>
+    <div>
+        <header>
+          <mainNavbarComponent></mainNavbarComponent>
+        </header>
+    </div>
     <div class="user-profile">
         <div class="profile-header">
             <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
@@ -43,9 +45,11 @@
             </div>
         </div>
     </div>
-    <footer>
-      <footerComponent></footerComponent>
-    </footer>
+    <div>
+        <footer>
+          <footerComponent></footerComponent>
+        </footer>
+    </div>
 </template>
 
 <script lang="ts">
