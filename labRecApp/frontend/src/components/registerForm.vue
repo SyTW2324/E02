@@ -1,23 +1,21 @@
 <template>
-    <transition name="fade">
-        {{ showForm }}
-        <div v-if="showForm" class="register-form">
-            <div class="form-container">
-                <label for="action">Acción:</label>
-                <Dropdown v-model="selectedAction" :options="actionOptions" />
+    <div v-if="showForm" class="register-form">
+        <div class="form-container">
+            {{ showForm }}
+            <label for="action">Acción:</label>
+            <Dropdown v-model="selectedAction" :options="actionOptions" />
 
-                <div v-if="selectedAction === 'pausa'">
-                    <label for="reason">Motivo de pausa:</label>
-                    <Dropdown v-model="selectedReason" :options="reasonOptions" />
-                </div>
-
-                <label for="datetime">Fecha y hora:</label>
-                <Calendar v-model="selectedDateTime" showTime />
-
-                <button @click="submitForm">Enviar</button>
+            <div v-if="selectedAction === 'pausa'">
+                <label for="reason">Motivo de pausa:</label>
+                <Dropdown v-model="selectedReason" :options="reasonOptions" />
             </div>
+
+            <label for="datetime">Fecha y hora:</label>
+            <Calendar v-model="selectedDateTime" showTime />
+
+            <button @click="submitForm">Enviar</button>
         </div>
-    </transition>
+    </div>
 </template>
 
 <script lang="ts">
