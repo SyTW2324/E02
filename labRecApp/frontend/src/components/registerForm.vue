@@ -57,7 +57,7 @@ export default {
         const submitForm = () => {
             const formData = {
                 action: selectedAction.value.value,
-                reason: selectedReason.value.value,
+                reason: selectedReason.value,
                 datetime: selectedDateTime.value,
             };
             console.log("Datos enviados:", formData);
