@@ -1,9 +1,9 @@
 <template>
     <div class="user-profile">
         <div class="profile-header">
-            <img :src="user.photo" alt="User Photo" class="profile-photo" />
+            <img :src="getUserPhoto" alt="User Photo" class="profile-photo" />
             <div class="user-info">
-                <h2>{{ user.fullName }}</h2>
+                <h2>{{ getUserFullName }}</h2>
             </div>
         </div>
 
@@ -12,24 +12,31 @@
             <table>
                 <tr>
                     <td>Email:</td>
-                    <td>{{ user.email }}</td>
+                    <td>{{ getUserEmail }}</td>
                 </tr>
                 <tr>
                     <td>Número de Teléfono:</td>
-                    <td>{{ user.phoneNumber }}</td>
+                    <td>{{ getUserPhone }}</td>
                 </tr>
-                <!-- Agrega más filas según los datos que desees mostrar -->
+                <tr>
+                    <td>Dni:</td>
+                    <td>{{ getUserDni }}</td>
+                </tr>
+                <tr>
+                    <td>Rol:</td>
+                    <td>{{ getUserRol }}</td>
+                </tr>
             </table>
         </div>
 
         <div class="extra-info-panel">
             <div class="panel-item">
                 <h3>Número de Seguridad Social</h3>
-                <p>{{ user.socialSecurityNumber }}</p>
+                <p>{{ getUserSecurityNumber }}</p>
             </div>
             <div class="panel-item">
                 <h3>Días Trabajados</h3>
-                <p>{{ user.workingDays }}</p>
+                <p>{{ getUserVacationAvailableDays }}</p>
             </div>
             <!-- Agrega más paneles según la información adicional que desees mostrar -->
         </div>
@@ -89,6 +96,12 @@ export default {
             return userVacationAvailableDays;
         }
 
+        const getUserSecurityNumber = () => {
+            var userSecurityNumber;
+            authStore.afiliateNumber ? userSecurityNumber = authStore.afiliateNumber : userSecurityNumber = "null";
+            return userSecurityNumber;
+        }
+
         return {
             getUserPhoto,
             getUserFullName,
@@ -96,7 +109,8 @@ export default {
             getUserPhone,
             getUserEmail,
             getUserRol,
-            getUserVacationAvailableDays
+            getUserVacationAvailableDays,
+            getUserSecurityNumber
         }
     }
 };
