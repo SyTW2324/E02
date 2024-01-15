@@ -49,7 +49,6 @@ export default {
     }
 
     const openRegister = () => {
-      console.log("ENTRA AQUI")
       registerRequest.value = true;
     }
 
