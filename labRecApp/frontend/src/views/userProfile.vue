@@ -46,35 +46,35 @@ export default {
         const authStore = userAuthentication(); 
 
         const getUserPhoto = () => {
-
+            return "../assets/Login_usuario.png"
         }
 
         const getUserName = () => {
-
+            authStore.name ? authStore.name : "null"; 
         }
 
         const getUserSurnames = () => {
-
+            authStore.surnames ? authStore.surnames : "null";
         }
 
         const getUserDni = () => {
-
+            authStore.dni ? authStore.dni : "null";
         }
 
         const getUserPhone = () => {
-
+            authStore.phone ? authStore.phone : "null";
         }
 
         const getUserEmail = () => {
-
+            authStore.email ? authStore.email : "null";
         }
 
         const getUserRol = () => {
-
+            authStore.administrator == 1 ? "Administrador" : "Empleado"
         }
 
         const getUserVacationAvailableDays = () => {
-
+            authStore.vacationsDays ? authStore.vacationsDays : "No hay vacaciones,trabaja";
         }
 
         return {
