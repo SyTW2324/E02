@@ -1,5 +1,9 @@
 <template>
     <div class="user-profile">
+        <header>
+          <mainNavbarComponent></mainNavbarComponent>
+        </header>
+        <!-- Cuerpo de los datos del perfil-->
         <div class="profile-header">
             <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
             <div class="user-info">
@@ -38,16 +42,25 @@
                 <h3>Días de vacacaciones disponibles</h3>
                 <p>{{ getUserVacationAvailableDays() }}</p>
             </div>
-            <!-- Agrega más paneles según la información adicional que desees mostrar -->
         </div>
+        <!-- Pie de pagina de la aplicacion-->
+        <footer>
+          <footerComponent></footerComponent>
+        </footer>
     </div>
 </template>
 
 <script lang="ts">
 // import "../styles/userProfile_style.css"
 import { userAuthentication } from "../tools/store";
+import mainNavbarComponent from "../components/mainNavbar.vue"
+import footerComponent from "../components/footer.vue";
 export default {
     data() {
+    },
+    components: {
+        mainNavbarComponent,
+        footerComponent
     },
     setup() {
         const authStore = userAuthentication(); 
