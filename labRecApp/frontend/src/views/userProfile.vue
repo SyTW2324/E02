@@ -24,7 +24,10 @@ export default {
 .container {
     position: relative;
     min-height: 100vh;
-    /* Establece la altura mínima de la vista en 100% de la altura de la ventana */
+}
+
+.container {
+    overflow-y: auto; /* Añadir barra de desplazamiento vertical si es necesario */
 }
 
 .header {
@@ -38,8 +41,7 @@ export default {
 .user-profile {
     margin-top: 100px;
     text-align: center;
-    padding-bottom: 60px;
-    /* Ajusta según la altura de tu pie de página */
+    padding-bottom: 80px; /* Ajusta según la altura de tu pie de página */
 }
 
 .footer {
@@ -48,5 +50,6 @@ export default {
     left: 0;
     right: 0;
     z-index: 2;
+    height: 60px; /* Ajusta según la altura de tu pie de página */
 }
 </style>
