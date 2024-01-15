@@ -38,20 +38,56 @@
 
 <script lang="ts">
 import "../styles/userProfile_style.css"
+import { userAuthentication } from "../tools/store";
 export default {
     data() {
-        return {
-            user: {
-                photo: 'ruta/a/la/foto.jpg',
-                fullName: 'Nombre del Usuario',
-                email: 'usuario@email.com',
-                phoneNumber: '123456789',
-                socialSecurityNumber: '123-45-6789',
-                workingDays: 150,
-                // Agrega más propiedades según los datos del usuario
-            },
-        };
     },
+    setup() {
+        const authStore = userAuthentication(); 
+
+        const getUserPhoto = () => {
+
+        }
+
+        const getUserName = () => {
+
+        }
+
+        const getUserSurnames = () => {
+
+        }
+
+        const getUserDni = () => {
+
+        }
+
+        const getUserPhone = () => {
+
+        }
+
+        const getUserEmail = () => {
+
+        }
+
+        const getUserRol = () => {
+
+        }
+
+        const getUserVacationAvailableDays = () => {
+
+        }
+
+        return {
+            getUserPhoto,
+            getUserName,
+            getUserSurnames,
+            getUserDni,
+            getUserPhone,
+            getUserEmail,
+            getUserRol,
+            getUserVacationAvailableDays
+        }
+    }
 };
 </script>
 
