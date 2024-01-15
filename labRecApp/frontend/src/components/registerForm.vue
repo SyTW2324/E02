@@ -1,16 +1,20 @@
 <template>
     <div v-if="showForm" class="register-form">
         <div class="form-container">
-            <label for="action">Acción: <span class="required">*</span></label>
-            <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label" />
-
-            <div v-if="selectedAction && selectedAction.value === 'pausa'">
-                <label for="reason">Motivo de pausa: <span class="required">*</span></label>
-                <Dropdown v-model="selectedReason" :options="reasonOptions" optionLabel="label" />
+            <div class="form-group">
+                <label for="action">Acción: <span class="required">*</span></label>
+                <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label" class="full-width" />
             </div>
 
-            <label for="datetime">Fecha y hora: <span class="required">*</span></label>
-            <Calendar v-model="selectedDateTime" showTime />
+            <div v-if="selectedAction && selectedAction.value === 'pausa'" class="form-group">
+                <label for="reason">Motivo de pausa: <span class="required">*</span></label>
+                <Dropdown v-model="selectedReason" :options="reasonOptions" optionLabel="label" class="full-width" />
+            </div>
+
+            <div class="form-group">
+                <label for="datetime">Fecha y hora: <span class="required">*</span></label>
+                <Calendar v-model="selectedDateTime" showTime class="full-width" />
+            </div>
 
             <button @click="submitForm">Enviar</button>
 
@@ -135,3 +139,4 @@ export default {
   margin-top: 10px;
 }
 </style>
+
