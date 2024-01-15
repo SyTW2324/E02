@@ -7,7 +7,7 @@
         </template>
       </Menubar>
     </div>
-    <RegisterForm :showForm="registerRequest" @close="closeRegister()" />
+    <RegisterForm v-if="registerRequest" :showForm="registerRequest" @close="closeRegister()" />
   </div>
 </template>
 

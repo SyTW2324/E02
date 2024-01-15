@@ -1,5 +1,6 @@
 <template>
     <transition name="fade">
+        {{ showForm }}
         <div v-if="showForm" class="register-form">
             <div class="form-container">
                 <label for="action">Acción:</label>
