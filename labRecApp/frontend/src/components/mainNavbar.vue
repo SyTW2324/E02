@@ -17,6 +17,7 @@ import "../styles/mainNavbar_style.css"
 import { userAuthentication } from "../tools/store";
 import { useRouter } from 'vue-router';
 import RegisterForm from "../components/registerForm.vue"
+import {ref} from "vue" 
 
 export default {
   data() {
@@ -29,7 +30,7 @@ export default {
   setup() {
     const authStore = userAuthentication();
     const router = useRouter();
-    var registerRequest = false;
+    var registerRequest = ref(false);
     const logout = () => {
       //console.log("Esta entrando aqui ...")
 
@@ -49,11 +50,11 @@ export default {
 
     const openRegister = () => {
       console.log("ENTRA AQUI")
-      registerRequest = true;
+      registerRequest.value = true;
     }
 
     const closeRegister = () => {
-      registerRequest = false;
+      registerRequest.value = false;
     }
 
     const items = [
