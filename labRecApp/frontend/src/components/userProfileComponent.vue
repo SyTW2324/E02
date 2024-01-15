@@ -30,18 +30,22 @@
                 </table>
             </div>
         </div>
-        <div class="extra-info-panel-container">
-            <div class="extra-info-panel">
-                <div class="panel-item">
-                    <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
-                    <p class="small-text" >{{ getUserSecurityNumber() }}</p>
-                </div>
-                <div class="panel-item">
-                    <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
-                    <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
-                </div>
+        
+        <div class="security-number-container">
+            <!--<div class="extra-info-panel">-->
+            <div class="panel-item">
+                <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
+                <p class="small-text" >{{ getUserSecurityNumber() }}</p>
             </div>
         </div>
+
+        <div class="vacation-days-container">
+            <div class="panel-item">
+                <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
+                <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
+            </div>
+        </div>
+
     </div>
 </template>
 
