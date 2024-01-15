@@ -3,7 +3,7 @@
     <div class="card relative z-2">
       <Menubar :model="items" class="navbarmenu">
         <template #start>
-          <a href=""><img alt="logo" src="../assets/Logo.png" height="60" class="logo" @click="redirectToMainPage()"/></a>
+          <a href="/mainPage"><img alt="logo" src="../assets/Logo.png" height="60" class="logo" @click="redirectToMainPage()"/></a>
         </template>
       </Menubar>
     </div>
