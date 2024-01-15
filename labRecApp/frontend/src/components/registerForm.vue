@@ -1,5 +1,8 @@
 <template>
     <div v-if="showForm" class="register-form">
+        <div class="title">
+          <h2>Registro de Actividad</h2>
+        </div>
         <div class="form-container">
             <div class="form-group">
                 <label for="action">Acción: <span class="required">*</span></label>
@@ -137,6 +140,12 @@ export default {
 .error-message {
   color: rgb(168, 27, 27);
   margin-top: 10px;
+}
+.title {
+  text-align: center;
+  color: gold; /* Puedes ajustar el color según tus preferencias */
+  font-size: 1.5em;
+  margin-bottom: 20px;
 }
 </style>
 
