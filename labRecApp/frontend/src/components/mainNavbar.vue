@@ -26,6 +26,7 @@ export default {
   setup() {
     const authStore = userAuthentication();
     const router = useRouter();
+    var registerRequest = false;
     const logout = () => {
       //console.log("Esta entrando aqui ...")
 
@@ -41,6 +42,10 @@ export default {
 
     const redirectToMainPage = () => {
       router.push('/mainPage')
+    }
+
+    const openRegister = () => {
+      registerRequest = true;
     }
 
     const items = [
@@ -72,7 +77,7 @@ export default {
           {
             label: 'Registrar',
             icon: 'pi pi-fw pi-plus',
-            to: ''
+            command: openRegister
           },
           {
             label: 'Ausencias',
@@ -105,7 +110,8 @@ export default {
 
     return {
       items,
-      redirectToMainPage
+      redirectToMainPage,
+      registerRequest
     }
   }
 }
