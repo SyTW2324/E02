@@ -1,7 +1,7 @@
 <template>
     <div class="user-profile">
         <div class="profile-header">
-            <img :src="getUserPhoto()" alt="User Photo" class="profile-photo" />
+            <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
             <div class="user-info">
                 <h2>{{ getUserFullName() }}</h2>
             </div>
@@ -35,7 +35,7 @@
                 <p>{{ getUserSecurityNumber() }}</p>
             </div>
             <div class="panel-item">
-                <h3>Días Trabajados</h3>
+                <h3>Días de vacacaciones disponibles</h3>
                 <p>{{ getUserVacationAvailableDays() }}</p>
             </div>
             <!-- Agrega más paneles según la información adicional que desees mostrar -->
