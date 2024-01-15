@@ -62,7 +62,8 @@ export default {
 
         const submitForm = () => {
             // Verifica si los campos obligatorios están llenos
-            if (!selectedAction.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value) ) {
+            //|| (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)
+            if (!selectedAction.value || !selectedDateTime.value) {
                 errorMessage.value = "Por favor, complete todos los campos obligatorios.";
                 return;
             }
@@ -72,7 +73,7 @@ export default {
                 reason: "",
                 datetime: null
             };
-            selectedAction.value.value ? formData.action = selectedAction.value.value : formData.action = "ERROR"
+            selectedAction.value.value ? formData.action = selectedAction.value.value : formData.action = ""
             selectedReason.value.value ? formData.reason = selectedReason.value.value : formData.reason = ""
             selectedDateTime.value ? formData.datetime = selectedDateTime.value : formData.datetime = null
             console.log("Datos enviados:", formData);
