@@ -32,7 +32,7 @@
 import { ref } from "vue";
 import Dropdown from "primevue/dropdown";
 import Calendar from "primevue/calendar";
-import "../styles/userProfile_style.css"
+import "../styles/registerForm_styles.css"
 
 export default {
     name: "registerFormComponent",
