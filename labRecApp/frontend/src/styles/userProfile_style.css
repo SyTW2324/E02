@@ -56,21 +56,21 @@
 }
 
 .golden-text {
-    color: rgba(124, 107, 11, 0.901);
+    color: rgb(97, 83, 2);
 }
 
 .large-text {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
 }
 
 .medium-text {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .small-text-bold {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
