@@ -1,13 +1,12 @@
 <template>
     <div v-if="showForm" class="register-form">
         <div class="form-container">
-            {{ showForm }}
             <label for="action">Acción:</label>
-            <Dropdown v-model="selectedAction" :options="actionOptions" />
+            <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label"/>
 
             <div v-if="selectedAction === 'pausa'">
                 <label for="reason">Motivo de pausa:</label>
-                <Dropdown v-model="selectedReason" :options="reasonOptions" />
+                <Dropdown v-model="selectedReason" :options="reasonOptions" optionLabel="label" />
             </div>
 
             <label for="datetime">Fecha y hora:</label>
@@ -36,8 +35,8 @@ export default {
         Calendar,
     },
     setup(props, { emit }) {
-        const selectedAction = ref("");
-        const selectedReason = ref("");
+        const selectedAction = ref();
+        const selectedReason = ref();
         const selectedDateTime = ref(null);
 
         const actionOptions = [
@@ -57,8 +56,8 @@ export default {
 
         const submitForm = () => {
             const formData = {
-                action: selectedAction.value,
-                reason: selectedReason.value,
+                action: selectedAction.value.value,
+                reason: selectedReason.value.value,
                 datetime: selectedDateTime.value,
             };
             console.log("Datos enviados:", formData);
