@@ -43,6 +43,7 @@ export default {
             { label: "Iniciar jornada", value: "iniciar" },
             { label: "Finalizar jornada", value: "finalizar" },
             { label: "Comienzo de pausa laboral", value: "pausa" },
+            { label: "Vuelta de la pausa laboral", value: "retorno"}
         ];
 
         const reasonOptions = [
