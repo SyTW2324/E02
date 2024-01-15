@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showForm" class="register-form">
+    <div v-if="showForm" class="register-form" @keydown.esc="closeFormOnEscape()">
         <div class="title">
           <h2>Registro de Actividad</h2>
         </div>
@@ -67,6 +67,10 @@ export default {
             { label: "Otros asuntos", value: "otros" },
         ];
 
+        const closeFormOnEscape = () => {
+            emit("close");
+        }
+
         const submitForm = () => {
             // Verifica si los campos obligatorios están llenos
             if (!selectedAction.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)) {
@@ -96,7 +100,8 @@ export default {
             actionOptions,
             reasonOptions,
             submitForm,
-            errorMessage
+            errorMessage,
+            closeFormOnEscape
         };
     },
 };
