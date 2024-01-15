@@ -1,9 +1,9 @@
 <template>
     <div v-if="showForm" class="register-form" @keydown.esc="closeFormOnEscape()">
-        <div class="title">
-          <h2>Registro de Actividad</h2>
-        </div>
         <div class="form-container">
+            <div class="title">
+              <h2>Registro de Actividad</h2>
+            </div>
             <div class="form-group">
                 <label for="action">Acción: <span class="required">*</span></label>
                 <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label" class="full-width" />
