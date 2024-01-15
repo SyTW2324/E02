@@ -58,3 +58,22 @@
 .golden-text {
     color: rgba(124, 107, 11, 0.901);
 }
+
+.large-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.medium-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.small-text-bold {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 16px;
+}

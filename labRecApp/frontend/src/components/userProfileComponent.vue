@@ -3,40 +3,40 @@
         <div class="profile-header">
             <img src="../assets/Login_usuario.png" alt="User Photo" class="profile-photo" />
             <div class="user-info">
-                <h2 class="golden-text" >{{ getUserFullName() }}</h2>
+                <h2 class="golden-text large-text" >{{ getUserFullName() }}</h2>
             </div>
         </div>
 
         <div class="profile-details">
-            <h3 class="golden-text" >Datos del Usuario</h3>
+            <h3 class="golden-text medium-text" >Datos del Usuario</h3>
             <table>
                 <tr>
-                    <td>Email:</td>
-                    <td>{{ getUserEmail() }}</td>
+                    <td class="small-text-bold">Email:</td>
+                    <td class="small-text">{{ getUserEmail() }}</td>
                 </tr>
                 <tr>
-                    <td>Número de Teléfono:</td>
-                    <td>{{ getUserPhone() }}</td>
+                    <td class="small-text-bold">Número de Teléfono:</td>
+                    <td class="small-text">{{ getUserPhone() }}</td>
                 </tr>
                 <tr>
-                    <td>Dni:</td>
-                    <td>{{ getUserDni() }}</td>
+                    <td class="small-text-bold">Dni:</td>
+                    <td class="small-text">{{ getUserDni() }}</td>
                 </tr>
                 <tr>
-                    <td>Rol:</td>
-                    <td>{{ getUserRol() }}</td>
+                    <td class="small-text-bold">Rol:</td>
+                    <td class="small-text">{{ getUserRol() }}</td>
                 </tr>
             </table>
         </div>
 
         <div class="extra-info-panel">
             <div class="panel-item">
-                <h3 class="golden-text" >Número de Seguridad Social</h3>
-                <p>{{ getUserSecurityNumber() }}</p>
+                <h3 class="golden-text medium-text" >Número de Seguridad Social</h3>
+                <p class="small-text" >{{ getUserSecurityNumber() }}</p>
             </div>
             <div class="panel-item">
-                <h3 class="golden-text" >Días de vacacaciones disponibles</h3>
-                <p>{{ getUserVacationAvailableDays() }}</p>
+                <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
+                <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
             </div>
         </div>
     </div>
