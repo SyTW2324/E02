@@ -143,7 +143,7 @@ export default {
 }
 .title {
   text-align: center;
-  color: gold; /* Puedes ajustar el color según tus preferencias */
+  color: #b28d53; /* Puedes ajustar el color según tus preferencias */
   font-size: 1.5em;
   margin-bottom: 20px;
 }
