@@ -41,7 +41,7 @@ export default {
 .user-profile {
     margin-top: 100px;
     text-align: center;
-    padding-bottom: 140px; /* Ajusta según la altura de tu pie de página */
+    padding-bottom: 150px; /* Ajusta según la altura de tu pie de página */
 }
 
 .footer {
