@@ -23,6 +23,8 @@ export default {
 <style scoped>
 .container {
     position: relative;
+    min-height: 100vh;
+    /* Establece la altura mínima de la vista en 100% de la altura de la ventana */
 }
 
 .header {
@@ -31,13 +33,13 @@ export default {
     left: 0;
     right: 0;
     z-index: 2;
-    /* Asegúrate de que el encabezado tenga un índice z mayor que el contenido del usuario */
 }
 
 .user-profile {
     margin-top: 100px;
-    /* Ajusta según la altura de tu encabezado */
     text-align: center;
+    padding-bottom: 60px;
+    /* Ajusta según la altura de tu pie de página */
 }
 
 .footer {
@@ -46,5 +48,5 @@ export default {
     left: 0;
     right: 0;
     z-index: 2;
-    /* Asegúrate de que el pie de página tenga un índice z mayor que el contenido del usuario */
-}</style>
+}
+</style>
