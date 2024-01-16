@@ -94,9 +94,25 @@ export default {
                 const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
                 const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
                 console.log(recordResponseJson);
-            } catch (error) {
+            } catch (error: any) {
                 console.log("Ha ocurrido un error\n");
-                console.log(error);
+                let errorMessage = '';
+                if (error .response) {
+                // El servidor respondió con un código de estado diferente de 2xx
+                errorMessage = JSON.stringify(error.response.data);
+                } else if (error.request) {
+                // La solicitud fue realizada, pero no se recibió respuesta
+                errorMessage = 'No se recibió respuesta del servidor';
+                } else {
+                // Ocurrió un error durante la configuración de la solicitud
+                errorMessage = `Error de configuración de la solicitud: ${error.message}`;
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorMessage,
+                });
             }
         } 
 
