@@ -18,3 +18,7 @@
 .p-submenu-list{
     width: auto;
 }
+
+.logo {
+    cursor: pointer;
+}

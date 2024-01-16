@@ -5,7 +5,7 @@
     min-height: 100vh;
 }
 
-@media screen and (max-height: 500px){
+@media screen and (max-height: 680px){
     #home footer, #home header {
         position: static;
     }
