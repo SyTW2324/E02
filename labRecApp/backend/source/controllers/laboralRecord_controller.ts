@@ -117,26 +117,26 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     }
 
     //* Horas trabajadas
-    if (action) {
-        if (action === "iniciar") {
-            existingRecord.inicioJornada = new Date().toISOString(); // Guarda la hora de inicio
-            existingRecord.horasTrabajadas = '0:00'; // Reinicia las horas trabajadas
-        } else if (action === "finalizar") {
-            const startDateTime = new Date(existingRecord.inicioJornada);
-            const endDateTime = new Date();
-            const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
-            existingRecord.horasTrabajadas = formatHours(hoursWorked);
-        } else {
-            const startDateTime = new Date(existingRecord.inicioJornada);
-            const endDateTime = new Date();
-            const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
-            const totalHours = parseFloat(existingRecord.horasTrabajadas) + hoursWorked;
-            existingRecord.horasTrabajadas = formatHours(totalHours);
-        }
-    } else {
-        existingRecord.horasTrabajadas = "";
-        existingRecord.inicioJornada = "";
-    }
+    //if (action) {
+    //    if (action === "iniciar") {
+    //        existingRecord.inicioJornada = new Date().toISOString(); // Guarda la hora de inicio
+    //        existingRecord.horasTrabajadas = '0:00'; // Reinicia las horas trabajadas
+    //    } else if (action === "finalizar") {
+    //        const startDateTime = new Date(existingRecord.inicioJornada);
+    //        const endDateTime = new Date();
+    //        const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
+    //        existingRecord.horasTrabajadas = formatHours(hoursWorked);
+    //    } else {
+    //        const startDateTime = new Date(existingRecord.inicioJornada);
+    //        const endDateTime = new Date();
+    //        const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
+    //        const totalHours = parseFloat(existingRecord.horasTrabajadas) + hoursWorked;
+    //        existingRecord.horasTrabajadas = formatHours(totalHours);
+    //    }
+    //} else {
+    //    existingRecord.horasTrabajadas = "";
+    //    existingRecord.inicioJornada = "";
+    //}
 
     //* Seteo de datos
     existingRecord.ubication = ubication; 
