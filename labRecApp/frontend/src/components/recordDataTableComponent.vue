@@ -5,9 +5,9 @@
           <tr>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Acción</th>
             <th>Fecha y Hora</th>
             <th>Ubicación</th>
-            <th>Acción</th>
             <th>Estado</th>
             <th>Jornada</th>
           </tr>
@@ -16,9 +16,9 @@
           <tr v-for="record in records" :key="record._id">
             <td>{{ record.name }}</td>
             <td>{{ record.email }}</td>
+            <td>{{ record.action }}</td>
             <td>{{ record.dateTime }}</td>
             <td>{{ record.ubication }}</td>
-            <td>{{ record.action }}</td>
             <td>{{ record.estado }}</td>
             <td>{{ record.jornada }}</td>
           </tr>
