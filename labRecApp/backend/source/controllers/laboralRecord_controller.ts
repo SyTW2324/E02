@@ -108,8 +108,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         }
     }
 
-    //existingRecord.name = name || existingRecord.name;
-    //existingRecord.estado = estado; 
+    //* Seteo de datos
     existingRecord.ubication = ubication; 
     existingRecord.action = action;
     existingRecord.dateTime = dateTime;
