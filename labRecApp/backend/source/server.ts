@@ -19,6 +19,8 @@ app.use(express.json());// Usamos el middleware .json() para que las peticiones 
 app.options('*', cors());
 app.use(cors());
 
+//!mas opciones si fuese necesaio
+
 // Evitamos el problema de no poder recibir solicitudes desde el front
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
