@@ -39,6 +39,7 @@ import Dropdown from "primevue/dropdown";
 import Calendar from "primevue/calendar";
 import "../styles/registerForm_styles.css"
 import { userAuthentication } from "../tools/store";
+import axios from 'axios';
 
 export default {
     name: "registerFormComponent",
@@ -87,6 +88,17 @@ export default {
             emit("close");
         }
 
+        const updateValues = async (param:string, body: any) => {
+            try {
+                const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/:${param}`, body);
+                const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
+                console.log(recordResponseJson);
+            } catch (error) {
+                console.log("Ha ocurrido un error\n");
+                console.log(error);
+            }
+        } 
+
         const submitForm = () => {
             // Verifica si los campos obligatorios están llenos
             if (!selectedAction.value || !selectedUbication.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)) {
@@ -116,6 +128,8 @@ export default {
                 dateTime: formData.datetime,
                 ubication: formData.ubication
             }
+
+            updateValues(userEmail, requestBody);
             
             emit("close");
         };
