@@ -123,9 +123,19 @@ export default {
             // APLICAR LOGICA PARA EL BACKEND MAS ADELANTE
             // Datos para la petición
             const userEmail = authStore.email;
+            // FORMATEO DE LA FECHA:
+            var fechaOriginalStr = "";
+            if (formData.datetime) {
+                fechaOriginalStr = formData.datetime;
+            }
+            var fechaOriginal = new Date(fechaOriginalStr);
+            var fechaFormateada;
+            if (fechaOriginal) {
+                fechaFormateada = `${fechaOriginal.toISOString().slice(0, 10)} ${fechaOriginal.toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })}`;
+            }
             const requestBody = {
                 action: formData.action,
-                dateTime: formData.datetime,
+                dateTime: fechaFormateada,
                 ubication: formData.ubication
             }
 
