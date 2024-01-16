@@ -40,6 +40,7 @@ import Calendar from "primevue/calendar";
 import "../styles/registerForm_styles.css"
 import { userAuthentication } from "../tools/store";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default {
     name: "registerFormComponent",
