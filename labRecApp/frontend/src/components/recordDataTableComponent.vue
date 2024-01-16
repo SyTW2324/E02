@@ -44,7 +44,7 @@
             let backgroundColor = '';
             switch (estado) {
                 case 'offline':
-                backgroundColor = 'red';
+                backgroundColor = 'darkred';
                 break;
                 case 'online':
                 backgroundColor = 'green';
