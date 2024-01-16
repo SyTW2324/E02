@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import record from "../db/models/record_model"
+import moment from 'moment';
 
 export const createRecordInput = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -107,6 +108,25 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
             existingRecord.estado = "pause"
         }
     }
+
+    //* Control del numero de horas trabajadas
+    if (existingRecord.action === 'iniciar') {
+        // Comienza un nuevo día de trabajo
+        existingRecord.dateTime = moment().toISOString();
+        existingRecord.jornada = '0'; // Se reinicia el numero de horas trabajadas
+      } else if (existingRecord.action === 'finalizar') {
+        // Finaliza el día de trabajo
+        const startDateTime = moment(existingRecord.dateTime);
+        const endDateTime = moment();
+        const hoursWorked = moment.duration(endDateTime.diff(startDateTime)).asHours();
+        existingRecord.jornada = hoursWorked.toString();
+      } else {
+        // Cualquier otra acción (pausa, retorno, etc.)
+        const startDateTime = moment(existingRecord.dateTime);
+        const endDateTime = moment();
+        const hoursWorked = moment.duration(endDateTime.diff(startDateTime)).asHours();
+        existingRecord.jornada = (parseFloat(existingRecord.jornada) + hoursWorked).toString();
+      }
 
     //* Seteo de datos
     existingRecord.ubication = ubication; 
