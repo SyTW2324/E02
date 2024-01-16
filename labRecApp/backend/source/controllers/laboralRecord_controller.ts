@@ -61,27 +61,22 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     if (existingRecord.action === "" && action !== "iniciar") {
         res.status(400).json({ error: 'No se puede ejecutar esa acción, registrese en el trabajo primero' });
         return;
-    }
-
-    if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action === "iniciar")  || (existingRecord.action === "iniciar" && action === "retorno")) {
+    } else if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action === "iniciar")  || (existingRecord.action === "iniciar" && action === "retorno")) {
         res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo` });
         return;        
-    }
-      
-    if (existingRecord.action === "finalizar" && action !== "") {
+    } else if (existingRecord.action === "finalizar" && action !== "") {
         res.status(400).json({ error: 'No se puede ejecutar esa acción, espere al reseteo horario para poder iniciar una nueva jornada' });
         return;        
-    }
-      
-    if (existingRecord.action === "pausa" && action !== "retorno") {
+    } else if (existingRecord.action === "pausa" && action !== "retorno") {
         res.status(400).json({ error: 'No se puede ejecutar esa acción, retorne su jornada laboral antes de iniciar cualquier otra acción' });
         return;        
-    }
-     
-    if ((existingRecord.action === "retorno" && action === "") || (existingRecord.action === "retorno" && action === "iniciar") || (existingRecord.action === "retorno" && action == "retorno")) {
+    } else if ((existingRecord.action === "retorno" && action === "") || (existingRecord.action === "retorno" && action === "iniciar") || (existingRecord.action === "retorno" && action == "retorno")) {
         res.status(400).json({ error: 'No se puede ejecutar esa acción, solamente puede pausar de nuevo o finalizar la jornada laboral' });
         return;        
     }
+
+    //* COMPROBACIONES DE LA FECHA
+
       
     //existingRecord.name = name || existingRecord.name;
     existingRecord.estado = estado; 
