@@ -1,4 +1,4 @@
-export interface Record {
+export interface recordInterface {
     _id: string;
     name: string;
     email: string;

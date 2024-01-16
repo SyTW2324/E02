@@ -30,11 +30,12 @@
   <script lang="ts">
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
+  import * as record from '../interfaces/record_response';
 
   export default {
     name: "recordDataTableComponent",
     setup() {
-      const records = ref([]);
+      const records = ref<record.recordInterface[]>([]);
   
       onMounted(async () => {
         try {
