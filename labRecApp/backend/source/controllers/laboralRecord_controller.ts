@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import record from "../db/models/record_model"
-import moment from 'moment';
+//import moment from 'moment';
 
 export const createRecordInput = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -59,22 +59,22 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     //? y en action el valor que se quiere cambiar, realicemos sus correspondientes comparaciones
     
     //* 1.  Si el estado actual es "" solamente puede cambiarse por "iniciar" cualquier otra accion debería devolver error
-    if (existingRecord.action === "" && action !== "iniciar") {
-        res.status(400).json({ error: 'No se puede ejecutar esa acción, registrese en el trabajo primero' });
-        return;
-    } else if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action === "iniciar")  || (existingRecord.action === "iniciar" && action === "retorno")) {
-        res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo` });
-        return;        
-    } else if (existingRecord.action === "finalizar" && action !== "") {
-        res.status(400).json({ error: 'No se puede ejecutar esa acción, espere al reseteo horario para poder iniciar una nueva jornada' });
-        return;        
-    } else if (existingRecord.action === "pausa" && action !== "retorno") {
-        res.status(400).json({ error: 'No se puede ejecutar esa acción, retorne su jornada laboral antes de iniciar cualquier otra acción' });
-        return;        
-    } else if ((existingRecord.action === "retorno" && action === "") || (existingRecord.action === "retorno" && action === "iniciar") || (existingRecord.action === "retorno" && action == "retorno")) {
-        res.status(400).json({ error: 'No se puede ejecutar esa acción, solamente puede pausar de nuevo o finalizar la jornada laboral' });
-        return;        
-    }
+    //if (existingRecord.action === "" && action !== "iniciar") {
+    //    res.status(400).json({ error: 'No se puede ejecutar esa acción, registrese en el trabajo primero' });
+    //    return;
+    //} else if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action === "iniciar")  || (existingRecord.action === "iniciar" && action === "retorno")) {
+    //    res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo` });
+    //    return;        
+    //} else if (existingRecord.action === "finalizar" && action !== "") {
+    //    res.status(400).json({ error: 'No se puede ejecutar esa acción, espere al reseteo horario para poder iniciar una nueva jornada' });
+    //    return;        
+    //} else if (existingRecord.action === "pausa" && action !== "retorno") {
+    //    res.status(400).json({ error: 'No se puede ejecutar esa acción, retorne su jornada laboral antes de iniciar cualquier otra acción' });
+    //    return;        
+    //} else if ((existingRecord.action === "retorno" && action === "") || (existingRecord.action === "retorno" && action === "iniciar") || (existingRecord.action === "retorno" && action == "retorno")) {
+    //    res.status(400).json({ error: 'No se puede ejecutar esa acción, solamente puede pausar de nuevo o finalizar la jornada laboral' });
+    //    return;        
+    //}
 
     //* COMPROBACIONES DE LA FECHA
     if (dateTime) {
