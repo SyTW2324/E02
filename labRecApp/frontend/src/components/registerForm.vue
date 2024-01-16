@@ -90,7 +90,7 @@ export default {
 
         const updateValues = async (param:string, body: any) => {
             try {
-                const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/:${param}`, body);
+                const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
                 const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
                 console.log(recordResponseJson);
             } catch (error) {
