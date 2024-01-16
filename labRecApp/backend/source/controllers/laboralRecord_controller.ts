@@ -24,3 +24,18 @@ export const getRecords = async (req:Request, res:Response): Promise<void> => {
     res.status(500).json({error: 'Ha ocurrido un error'})
   }
 }
+
+export const findRecordByEmail = async (req:Request, res:Response): Promise<void> => {
+  try {
+    const { email } = req.params;
+    //console.log(email);
+    const record_by_mail = await record.findOne({email});
+    if (record_by_mail) {
+      res.json(record_by_mail);
+    } else {
+      res.status(400).json({error: 'Registro no encontrado not found'});
+    }
+  } catch (error) {
+    res.status(500).json({error: `Ha ocurrido un error al tratar de buscar el registro`});
+  }
+}
