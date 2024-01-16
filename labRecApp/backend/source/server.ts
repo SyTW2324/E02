@@ -22,9 +22,14 @@ app.options('*', cors());
 // Evitamos el problema de no poder recibir solicitudes desde el front
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
-  res.header('Access-Control-Allow-Methods', 'GET, POST'); // Métodos permitidos
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE'); // Métodos permitidos
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeceras permitidas
   next();
+});
+
+app.use((err:any, req:any, res:any, next:any) => {
+  console.error(err.stack);
+  res.status(500).send('Error interno del servidor');
 });
 
 app.post('/users', async (req: Request, res: Response) => {
