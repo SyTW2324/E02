@@ -89,7 +89,7 @@ app.patch('/record/:email', async (req:Request, res: Response) => {
   try {
     await updateRecord(req,res);
   } catch (error) {
-    res.status(500).json({error: `No se ha podido actualizar el registro laboral`})
+    res.status(500).json(error)
   }
 });
 

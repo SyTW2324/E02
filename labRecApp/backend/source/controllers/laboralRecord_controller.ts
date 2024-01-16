@@ -52,11 +52,42 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
       return;
     }
 
+    //! PRIMERO APLICAMOS LOGICA... DESPUES REALIZAMOS LOS CAMBIOS CORRESPONDIENTES
+    //* Logica de estados/accion
+    //?tenemos en existing.action el valor actual de la accion que esta realizando el usuario
+    //? y en action el valor que se quiere cambiar, realicemos sus correspondientes comparaciones
+    
+    //* 1.  Si el estado actual es "" solamente puede cambiarse por "iniciar" cualquier otra accion debería devolver error
+    if (existingRecord.action === "" && action !== "iniciar") {
+        res.status(400).json({ error: 'No se puede ejecutar esa acción, registrese en el trabajo primero' });
+        return;
+    }
+    
+    if (existingRecord.action === "iniciar" && (action !== "finalizar" || action !== "pausa")) {
+        res.status(400).json({ error: 'No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo' });
+        return;        
+    }
+      
+    if (existingRecord.action === "finalizar" && action !== "") {
+        res.status(400).json({ error: 'No se puede ejecutar esa acción, espere al reseteo horario para poder iniciar una nueva jornada' });
+        return;        
+    }
+      
+    if (existingRecord.action === "pausa" && action !== "retorno") {
+        res.status(400).json({ error: 'No se puede ejecutar esa acción, retorne su jornada laboral antes de iniciar cualquier otra acción' });
+        return;        
+    }
+     
+    if (existingRecord.action === "retorno" && (action !== "finalizar" || action !== "pausa")) {
+        res.status(400).json({ error: 'No se puede ejecutar esa acción, solamente puede pausar de nuevo o finalizar la jornada laboral' });
+        return;        
+    }
+      
     //existingRecord.name = name || existingRecord.name;
-    existingRecord.estado = estado || existingRecord.estado;
-    existingRecord.ubication = ubication || existingRecord.ubication;
-    existingRecord.action = action || existingRecord.action;
-    existingRecord.dateTime = dateTime || existingRecord.dateTime;
+    existingRecord.estado = estado; 
+    existingRecord.ubication = ubication; 
+    existingRecord.action = action;
+    existingRecord.dateTime = dateTime;
 
     await existingRecord.save();
 
