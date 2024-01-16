@@ -78,7 +78,7 @@
 <style scoped>
 /* Estilos para la tabla y la caja contenedora */
 .table-container {
-  background-color: white;
+  background-color: #cac9c9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -103,7 +103,7 @@
   display: inline-block;
   padding: 8px 15px;
   font-weight: bold;
-  color: white;
+  color: #000000;
   border-radius: 10px;
 }
 </style>
