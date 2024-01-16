@@ -99,6 +99,19 @@ export default {
             }
         } 
 
+        const formatDate = (dateUnformated:any) => {
+            var fechaOriginalStr = "";
+            if (dateUnformated) {
+                fechaOriginalStr = dateUnformated;
+            }
+            var fechaOriginal = new Date(fechaOriginalStr);
+            var fechaFormateada;
+            if (fechaOriginal) {
+                fechaFormateada = `${fechaOriginal.toISOString().slice(0, 10)} ${fechaOriginal.toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })}`;
+            }
+            return fechaFormateada;
+        } 
+
         const submitForm = () => {
             // Verifica si los campos obligatorios están llenos
             if (!selectedAction.value || !selectedUbication.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)) {
@@ -124,18 +137,9 @@ export default {
             // Datos para la petición
             const userEmail = authStore.email;
             // FORMATEO DE LA FECHA:
-            var fechaOriginalStr = "";
-            if (formData.datetime) {
-                fechaOriginalStr = formData.datetime;
-            }
-            var fechaOriginal = new Date(fechaOriginalStr);
-            var fechaFormateada;
-            if (fechaOriginal) {
-                fechaFormateada = `${fechaOriginal.toISOString().slice(0, 10)} ${fechaOriginal.toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })}`;
-            }
             const requestBody = {
                 action: formData.action,
-                dateTime: fechaFormateada,
+                dateTime: formatDate(formData.datetime),
                 ubication: formData.ubication
             }
 
