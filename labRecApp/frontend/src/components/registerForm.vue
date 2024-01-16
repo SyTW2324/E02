@@ -9,6 +9,11 @@
                 <Dropdown v-model="selectedAction" :options="actionOptions" optionLabel="label" class="full-width" />
             </div>
 
+            <div class="form-group">
+                <label for="action">Ubicación: <span class="required">*</span></label>
+                <Dropdown v-model="selectedUbication" :options="ubicationOptions" optionLabel="label" class="full-width" />
+            </div>
+
             <div v-if="selectedAction && selectedAction.value === 'pausa'" class="form-group">
                 <label for="reason">Motivo de pausa: <span class="required">*</span></label>
                 <Dropdown v-model="selectedReason" :options="reasonOptions" optionLabel="label" class="full-width" />
@@ -48,6 +53,7 @@ export default {
     },
     setup(props, { emit }) {
         const selectedAction = ref();
+        const selectedUbication = ref();
         const selectedReason = ref();
         const selectedDateTime = ref(null);
         const errorMessage = ref("");
@@ -68,23 +74,32 @@ export default {
             { label: "Otros asuntos", value: "otros" },
         ];
 
+        const ubicationOptions = [
+            { label: "Trabajo desde casa", value: "casa" },
+            { label: "Trabajo en la oficina", value: "oficina" },
+            { label: "Desplazamiento hacia oficina cliente", value: "cliente" }
+        ]; 
+
         const closeFormOnEscape = () => {
             emit("close");
         }
 
         const submitForm = () => {
             // Verifica si los campos obligatorios están llenos
-            if (!selectedAction.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)) {
+            if (!selectedAction.value || !selectedUbication.value || !selectedDateTime.value || (selectedAction.value && selectedAction.value.value === "pausa" && !selectedReason.value)) {
                 errorMessage.value = "Por favor, complete todos los campos obligatorios.";
                 return;
             }
 
+            // MODIFICAR MAS ADELANTE PARA PONER EL CUERPO DE LA REQUEST...
             const formData = {
                 action: "",
+                ubication: "",
                 reason: "",
                 datetime: null
             };
             selectedAction.value.value ? formData.action = selectedAction.value.value : formData.action = ""
+            selectedUbication.value.value ? formData.ubication = selectedUbication.value.value : formData.ubication = ""
             if (selectedAction.value.value === "pausa" && !selectedReason.value) {
                 formData.reason = selectedReason.value.value
             }
@@ -97,9 +112,11 @@ export default {
         return {
             selectedAction,
             selectedReason,
+            selectedUbication,
             selectedDateTime,
             actionOptions,
             reasonOptions,
+            ubicationOptions,
             submitForm,
             errorMessage,
             closeFormOnEscape
