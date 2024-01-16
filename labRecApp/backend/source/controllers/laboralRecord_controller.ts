@@ -64,7 +64,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     }
 
     if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action === "iniciar")  || (existingRecord.action === "iniciar" && action === "retorno")) {
-        res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo ${action}` });
+        res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo` });
         return;        
     }
       
