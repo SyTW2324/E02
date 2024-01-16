@@ -97,9 +97,9 @@ export default {
             } catch (error: any) {
                 console.log("Ha ocurrido un error\n");
                 let errorMessage = '';
-                if (error .response) {
+                if (error.response) {
                 // El servidor respondió con un código de estado diferente de 2xx
-                errorMessage = JSON.stringify(error.response.data);
+                errorMessage = error.response.data;
                 } else if (error.request) {
                 // La solicitud fue realizada, pero no se recibió respuesta
                 errorMessage = 'No se recibió respuesta del servidor';
