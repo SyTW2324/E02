@@ -119,7 +119,8 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
             const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
             existingRecord.horasTrabajadas = hoursWorked.toString();
         } else if(action === "") {
-            
+            existingRecord.horasTrabajadas = ""
+            existingRecord.inicioJornada = ""
         } else {
             const startDateTime = new Date(existingRecord.inicioJornada);
             const endDateTime = new Date();
