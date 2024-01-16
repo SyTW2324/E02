@@ -77,10 +77,11 @@
   
 <style scoped>
     /* Estilo común para las etiquetas de estado */
-    .status-label {
-    display: inline-block;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 10px; /* Ajusta el valor según sea necesario */
-    }
+.status-label {
+display: inline-block;
+padding: 5px 10px;
+font-weight: bold;
+color: white;
+border-radius: 10px; /* Ajusta el valor según sea necesario */
+}
 </style>
