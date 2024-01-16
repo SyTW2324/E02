@@ -63,7 +63,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         return;
     }
 
-    if (existingRecord.action === "iniciar" && (action !== "finalizar" || action !== "pausa")) {
+    if ((existingRecord.action === "iniciar" && action === "") || (existingRecord.action === "iniciar" && action !== "iniciar")  || (existingRecord.action === "iniciar" && action !== "retorno")) {
         res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo ${action}` });
         return;        
     }
@@ -78,7 +78,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         return;        
     }
      
-    if (existingRecord.action === "retorno" && (action !== "finalizar" || action !== "pausa")) {
+    if ((existingRecord.action === "retorno" && action === "") || (existingRecord.action === "retorno" && action !== "iniciar") || (existingRecord.action === "retorno" && action !== "retorno")) {
         res.status(400).json({ error: 'No se puede ejecutar esa acción, solamente puede pausar de nuevo o finalizar la jornada laboral' });
         return;        
     }
