@@ -80,7 +80,9 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     const submittedDate = new Date(dateTime);
 
     currentDate.setSeconds(0);
+    currentDate.setMilliseconds(0);
     submittedDate.setSeconds(0);
+    submittedDate.setMilliseconds(0);
 
     if (submittedDate < currentDate) {
         res.status(400).json({ error: `La fecha y hora proporcionadas están en el pasado. current: ${currentDate}. sub: ${submittedDate}` });
