@@ -13,9 +13,9 @@ const recordSchema: Schema = new Schema({
   name: {type: String, require:true},
   email: { type: String, require: true, unique: true},
   estado: {type: String, require:false},
+  dateTime: {type: String, require:false},
   ubication: {type: String, require:false},
   action: {type: String, require:false},
-  dateTime: {type: String, require:false},
 });
 
 // Crear el modelo Usuario
