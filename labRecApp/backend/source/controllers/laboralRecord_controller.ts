@@ -39,3 +39,29 @@ export const findRecordByEmail = async (req:Request, res:Response): Promise<void
     res.status(500).json({error: `Ha ocurrido un error al tratar de buscar el registro`});
   }
 }
+
+export const updateRecord = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { email } = req.params;
+    const { estado, ubication, action, dateTime } = req.body;
+
+    const existingRecord = await record.findOne({ email });
+
+    if (!existingRecord) {
+      res.status(404).json({ error: 'Registro no encontrado' });
+      return;
+    }
+
+    //existingRecord.name = name || existingRecord.name;
+    existingRecord.estado = estado || existingRecord.estado;
+    existingRecord.ubication = ubication || existingRecord.ubication;
+    existingRecord.action = action || existingRecord.action;
+    existingRecord.dateTime = dateTime || existingRecord.dateTime;
+
+    await existingRecord.save();
+
+    res.json(existingRecord);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al actualizar el registro' });
+  }
+};
