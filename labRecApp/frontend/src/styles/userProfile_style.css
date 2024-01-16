@@ -1,6 +1,24 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+@media screen and (max-height: 760px) {
+    #profile footer, #profile header {
+        position: static;
+    }
+}
+
 .user-profile {
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .profile-header {
