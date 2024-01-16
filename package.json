@@ -14,8 +14,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SyTW2324/E02.git"
-  },
-  "devDependencies": {
-    "moment": "^2.30.1"
   }
 }
