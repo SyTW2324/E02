@@ -118,15 +118,15 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
             const endDateTime = new Date();
             const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
             existingRecord.horasTrabajadas = hoursWorked.toString();
-        } else if(action === "") {
-            existingRecord.horasTrabajadas = ""
-            existingRecord.inicioJornada = ""
         } else {
             const startDateTime = new Date(existingRecord.inicioJornada);
             const endDateTime = new Date();
             const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
             existingRecord.horasTrabajadas = (parseFloat(existingRecord.horasTrabajadas) + hoursWorked).toString();
         }
+    } else {
+        existingRecord.horasTrabajadas = ""
+        existingRecord.inicioJornada = ""
     }
 
     //* Seteo de datos
