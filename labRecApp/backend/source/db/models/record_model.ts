@@ -1,21 +1,21 @@
 import mongoose, {Schema, Document} from 'mongoose';
 
 interface Record_interface extends Document {
-  email:string;
+  name: string;
+  email: string;
+  estado: string;
   ubication: string;
   action: string;
-  type: string;
   dateTime: string;
-  labor: string;
 }
 
 const recordSchema: Schema = new Schema({
-  email: {type: String, require:true},
-  ubication: {type: String, require:true},
-  action: {type: String, require:true},
-  type: {type: String, require:true},
-  dateTime: {type: String, require:true},
-  labor: {type: String, require:true}
+  name: {type: String, require:true},
+  email: { type: String, require: true, unique: true},
+  estado: {type: String, require:false},
+  ubication: {type: String, require:false},
+  action: {type: String, require:false},
+  dateTime: {type: String, require:false},
 });
 
 // Crear el modelo Usuario
