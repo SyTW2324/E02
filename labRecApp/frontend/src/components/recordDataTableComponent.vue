@@ -1,6 +1,6 @@
 <template>
-    <div>
-      <table>
+    <div class="table-container">
+      <table class="record-table">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -20,16 +20,16 @@
             <td>{{ record.dateTime }}</td>
             <td>{{ record.ubication }}</td>
             <td>
-            <span :style="getBackgroundColor(record.estado)" class="status-label">
-              {{ record.estado }}
-            </span>
-          </td>
+              <span :style="getBackgroundColor(record.estado)" class="status-label">
+                {{ record.estado }}
+              </span>
+            </td>
             <td>{{ record.jornada }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-</template>
+  </template>
   
 <script lang="ts">
   import { ref, onMounted } from 'vue';
@@ -76,12 +76,34 @@
 </script>
   
 <style scoped>
-    /* Estilo común para las etiquetas de estado */
+/* Estilos para la tabla y la caja contenedora */
+.table-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+}
+
+.record-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.record-table th,
+.record-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilo mejorado para las etiquetas de estado */
 .status-label {
-display: inline-block;
-padding: 5px 10px;
-font-weight: bold;
-color: white;
-border-radius: 10px; /* Ajusta el valor según sea necesario */
+  display: inline-block;
+  padding: 8px 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
 }
 </style>
