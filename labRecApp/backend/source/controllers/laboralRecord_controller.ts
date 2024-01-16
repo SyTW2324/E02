@@ -40,6 +40,12 @@ export const findRecordByEmail = async (req:Request, res:Response): Promise<void
   }
 }
 
+function formatHours(totalHours: number): string {
+    const hours = Math.floor(totalHours);
+    const minutes = Math.floor((totalHours - hours) * 60);
+    return `${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+}
+
 export const updateRecord = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email } = req.params;
