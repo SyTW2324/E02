@@ -118,21 +118,22 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     if (action) {
         if (action === "iniciar") {
             existingRecord.inicioJornada = new Date().toISOString(); // Guarda la hora de inicio
-            existingRecord.horasTrabajadas = '0'; // Reinicia las horas trabajadas
+            existingRecord.horasTrabajadas = '0:00'; // Reinicia las horas trabajadas
         } else if (action === "finalizar") {
             const startDateTime = new Date(existingRecord.inicioJornada);
             const endDateTime = new Date();
             const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
-            existingRecord.horasTrabajadas = hoursWorked.toString();
+            existingRecord.horasTrabajadas = formatHours(hoursWorked);
         } else {
             const startDateTime = new Date(existingRecord.inicioJornada);
             const endDateTime = new Date();
             const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
-            existingRecord.horasTrabajadas = (parseFloat(existingRecord.horasTrabajadas) + hoursWorked).toString();
+            const totalHours = parseFloat(existingRecord.horasTrabajadas) + hoursWorked;
+            existingRecord.horasTrabajadas = formatHours(totalHours);
         }
     } else {
-        existingRecord.horasTrabajadas = ""
-        existingRecord.inicioJornada = ""
+        existingRecord.horasTrabajadas = "";
+        existingRecord.inicioJornada = "";
     }
 
     //* Seteo de datos
