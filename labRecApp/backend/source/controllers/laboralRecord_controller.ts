@@ -76,7 +76,19 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     }
 
     //* COMPROBACIONES DE LA FECHA
+    const currentDate = new Date();
+    const submittedDate = new Date(dateTime);
 
+    if (submittedDate < currentDate) {
+        res.status(400).json({ error: 'La fecha y hora proporcionadas están en el pasado' });
+        return;
+    }
+  
+    const isSameDay = currentDate.toISOString().slice(0, 10) === submittedDate.toISOString().slice(0, 10);
+    if (!isSameDay) {
+        res.status(400).json({ error: 'La fecha proporcionada no es la fecha actual' });
+        return;
+    }  
       
     //existingRecord.name = name || existingRecord.name;
     existingRecord.estado = estado; 
