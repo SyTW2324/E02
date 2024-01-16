@@ -157,7 +157,8 @@ export default {
             const requestBody = {
                 action: formData.action,
                 dateTime: formatDate(formData.datetime),
-                ubication: formData.ubication
+                ubication: formData.ubication,
+                jornada: "8:00"
             }
 
             updateValues(userEmail, requestBody);
