@@ -8,7 +8,8 @@ interface Record_interface extends Document {
   action: string;
   dateTime: string;
   jornada: string;
-  horas_trabajadas: string;
+  horasTrabajadas: string;
+  inicioJornada: string;
 }
 
 const recordSchema: Schema = new Schema({
@@ -19,7 +20,8 @@ const recordSchema: Schema = new Schema({
   ubication: {type: String, require:false},
   action: {type: String, require:false},
   jornada: {type: String, require: false},
-  horas_trabajadas: {type: String, require: false}
+  horasTrabajadas: {type: String, require: false},
+  inicioJornada: {type:String, require: false}
 });
 
 // Crear el modelo Usuario

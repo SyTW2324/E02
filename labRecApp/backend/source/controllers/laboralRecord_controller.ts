@@ -108,6 +108,26 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         }
     }
 
+    //* Horas trabajadas
+    if (action) {
+        if (action === "iniciar") {
+            existingRecord.inicioJornada = new Date().toISOString(); // Guarda la hora de inicio
+            existingRecord.horasTrabajadas = '0'; // Reinicia las horas trabajadas
+        } else if (action === "finalizar") {
+            const startDateTime = new Date(existingRecord.inicioJornada);
+            const endDateTime = new Date();
+            const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
+            existingRecord.horasTrabajadas = hoursWorked.toString();
+        } else if(action === "") {
+            
+        } else {
+            const startDateTime = new Date(existingRecord.inicioJornada);
+            const endDateTime = new Date();
+            const hoursWorked = (endDateTime.getTime() - startDateTime.getTime()) / (1000 * 60 * 60);
+            existingRecord.horasTrabajadas = (parseFloat(existingRecord.horasTrabajadas) + hoursWorked).toString();
+        }
+    }
+
     //* Seteo de datos
     existingRecord.ubication = ubication; 
     existingRecord.action = action;
