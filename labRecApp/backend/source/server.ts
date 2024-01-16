@@ -69,6 +69,9 @@ app.post('/record', async (req: Request, res: Response) => {
   }
 }) 
 
+
+
+// * PUERTO DE ESCUCHA
 app.listen(PORT, () => {
   console.log(`\n ** Servidor escuchando en el puerto ${PORT} **`)
 })

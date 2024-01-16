@@ -12,3 +12,15 @@ export const createRecordInput = async (req: Request, res: Response): Promise<vo
     }
 }
 
+export const getRecords = async (req:Request, res:Response): Promise<void> => {
+  try {
+    const registros = await record.find();
+    if (registros) {
+      res.json(registros);
+    } else {
+      res.status(500).json({error: 'Ha ocurrido un error'})
+    }
+  } catch (error) {
+    res.status(500).json({error: 'Ha ocurrido un error'})
+  }
+}
