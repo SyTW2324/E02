@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import record from "../db/models/record_model"
-import { format, parseISO, differenceInHours } from 'date-fns';
 
 export const createRecordInput = async (req: Request, res: Response): Promise<void> => {
     try {
@@ -108,25 +107,6 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
             existingRecord.estado = "pause"
         }
     }
-
-    //* Control del numero de horas trabajadas
-    if (existingRecord.action === 'iniciar') {
-        // Comienza un nuevo día de trabajo
-        existingRecord.dateTime = new Date().toISOString();
-        existingRecord.horas_trabajadas = '0'; // Reinicia las horas trabajadas
-      } else if (existingRecord.action === 'finalizar') {
-        // Finaliza el día de trabajo
-        const startDateTime = parseISO(existingRecord.dateTime);
-        const endDateTime = new Date();
-        const hoursWorked = differenceInHours(endDateTime, startDateTime);
-        existingRecord.horas_trabajadas = hoursWorked.toString();
-      } else {
-        // Cualquier otra acción (pausa, retorno, etc.)
-        const startDateTime = parseISO(existingRecord.dateTime);
-        const endDateTime = new Date();
-        const hoursWorked = differenceInHours(endDateTime, startDateTime);
-        existingRecord.horas_trabajadas = (parseFloat(existingRecord.horas_trabajadas) + hoursWorked).toString();
-      }
 
     //* Seteo de datos
     existingRecord.ubication = ubication; 
