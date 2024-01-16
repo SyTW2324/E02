@@ -4,7 +4,7 @@ import config from './config/config'
 import { Request, Response } from "express";
 import { createUser, findUserByEmail, getUsers } from './controllers/user.controller'
 import { userLoginValidator } from './controllers/userLogin.controller'
-import { createRecordInput, getRecords } from './controllers/laboralRecord_controller'
+import { createRecordInput, getRecords, findRecordByEmail } from './controllers/laboralRecord_controller'
 import cors from 'cors';
 
 // Nos conectamos a la base de datos:
@@ -74,6 +74,14 @@ app.get('/record', async (req:Request, res: Response) => {
     await getRecords(req,res);
   } catch (error) {
     res.status(500).json({error: `Ha ocurrido un error mostrando los registros`})
+  }
+});
+
+app.get('/record/:email', async (req:Request, res: Response) => {
+  try {
+    await findRecordByEmail(req,res);
+  } catch (error) {
+    res.status(500).json({error: `Ha ocurrido un error mostrando el registro`})
   }
 });
 
