@@ -112,6 +112,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     existingRecord.ubication = ubication; 
     existingRecord.action = action;
     existingRecord.dateTime = dateTime;
+    existingRecord.jornada = "8:00"
 
     await existingRecord.save();
 
