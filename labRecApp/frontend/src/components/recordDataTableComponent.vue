@@ -103,7 +103,7 @@
   display: inline-block;
   padding: 8px 15px;
   font-weight: bold;
-  color: #000000;
+  color: #cac9c9;
   border-radius: 10px;
 }
 </style>
