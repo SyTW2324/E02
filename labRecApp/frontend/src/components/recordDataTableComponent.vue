@@ -19,15 +19,19 @@
             <td>{{ record.action }}</td>
             <td>{{ record.dateTime }}</td>
             <td>{{ record.ubication }}</td>
-            <td>{{ record.estado }}</td>
+            <td>
+            <span :style="getBackgroundColor(record.estado)" class="status-label">
+              {{ record.estado }}
+            </span>
+          </td>
             <td>{{ record.jornada }}</td>
           </tr>
         </tbody>
       </table>
     </div>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
   import * as record from '../interfaces/record_response';
@@ -35,22 +39,48 @@
   export default {
     name: "recordDataTableComponent",
     setup() {
-      const records = ref<record.recordInterface[]>([]);
+        const records = ref<record.recordInterface[]>([]);
+        const getBackgroundColor = (estado: string) => {
+            let backgroundColor = '';
+            switch (estado) {
+                case 'offline':
+                backgroundColor = 'red';
+                break;
+                case 'online':
+                backgroundColor = 'green';
+                break;
+                case 'pause':
+                backgroundColor = 'grey';
+                break;
+                default:
+                backgroundColor = 'transparent';
+            }
+            return { backgroundColor };
+        };
+
+        onMounted(async () => {
+            try {
+            const response = await axios.get(`https://perfect-cod-pantsuit.cyclic.app/record`);
+            records.value = response.data;
+            } catch (error) {
+            console.error('Error fetching records:', error);
+            }
+        });
   
-      onMounted(async () => {
-        try {
-          const response = await axios.get(`https://perfect-cod-pantsuit.cyclic.app/record`);
-          records.value = response.data;
-        } catch (error) {
-          console.error('Error fetching records:', error);
-        }
-      });
-  
-      return { records };
+        return { 
+            records,
+            getBackgroundColor 
+        };
     },
   };
-  </script>
+</script>
   
-  <style scoped>
-  /* Agrega estilos según sea necesario */
-  </style>
+<style scoped>
+    /* Estilo común para las etiquetas de estado */
+    .status-label {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px; /* Ajusta el valor según sea necesario */
+    }
+</style>
