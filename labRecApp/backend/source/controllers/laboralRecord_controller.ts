@@ -43,7 +43,7 @@ export const findRecordByEmail = async (req:Request, res:Response): Promise<void
 export const updateRecord = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email } = req.params;
-    const { estado, ubication, action, dateTime } = req.body;
+    const { estado, ubication, action, dateTime, jornada } = req.body;
 
     const existingRecord = await record.findOne({ email });
 
@@ -112,7 +112,7 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
     existingRecord.ubication = ubication; 
     existingRecord.action = action;
     existingRecord.dateTime = dateTime;
-    existingRecord.jornada = "8:00"
+    existingRecord.jornada = jornada;
 
     await existingRecord.save();
 
