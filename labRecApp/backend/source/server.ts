@@ -27,6 +27,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors({
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+}));
+
 app.use((err:any, req:any, res:any, next:any) => {
   console.error(err.stack);
   res.status(500).send('Error interno del servidor');
