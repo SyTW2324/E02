@@ -112,6 +112,8 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         } else if (action === "pausa") {
             existingRecord.estado = "pause"
         }
+    } else {
+        existingRecord.estado = "offline"
     }
 
     //* Horas trabajadas
