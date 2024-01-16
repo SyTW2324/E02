@@ -15,10 +15,10 @@ mongoose.connect(config.mongoURI); // pasamos la URI de nuestra base de datos en
 const app = express();
 const PORT = 3000;
 app.use(express.json());// Usamos el middleware .json() para que las peticiones a la API se parseen en formato json
-app.use(cors());
-
 // Middleware para manejar solicitudes OPTIONS
 app.options('*', cors());
+app.use(cors());
+
 // Evitamos el problema de no poder recibir solicitudes desde el front
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
