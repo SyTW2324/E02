@@ -62,9 +62,9 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         res.status(400).json({ error: 'No se puede ejecutar esa acción, registrese en el trabajo primero' });
         return;
     }
-    
+
     if (existingRecord.action === "iniciar" && (action !== "finalizar" || action !== "pausa")) {
-        res.status(400).json({ error: 'No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo' });
+        res.status(400).json({ error: `No se puede ejecutar esa acción, solamenete puede pausar o finalizar el trabajo ${action}` });
         return;        
     }
       
