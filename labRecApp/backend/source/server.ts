@@ -4,6 +4,7 @@ import config from './config/config'
 import { Request, Response } from "express";
 import { createUser, findUserByEmail, getUsers } from './controllers/user.controller'
 import { userLoginValidator } from './controllers/userLogin.controller'
+import { createRecordInput } from './controllers/laboralRecord_controller'
 import cors from 'cors';
 
 // Nos conectamos a la base de datos:
@@ -57,6 +58,16 @@ app.post('/users/login', async (req:Request, res: Response) => {
     res.status(500).json({error: `Error al encontrar el usuario`});
   }
 });
+
+//* REGISTRO LABORAL
+
+app.post('/record', async (req: Request, res: Response) => {
+  try {
+    await createRecordInput(req,res);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al crear entrada para un nuevo registro laboral'})
+  }
+}) 
 
 app.listen(PORT, () => {
   console.log(`\n ** Servidor escuchando en el puerto ${PORT} **`)
