@@ -94,11 +94,22 @@ export const updateRecord = async (req: Request, res: Response): Promise<void> =
         if (!isSameDay) {
             res.status(400).json({ error: 'La fecha proporcionada no es la fecha actual' });
             return;
-        }  
-          
+        }    
     }
+
+    //* Seteo del estado
+    if (action) {
+        if (action === "iniciar" || action === "retorno") {
+            existingRecord.estado = "online"
+        } else if (action === "finalizar" || action === "") {
+            existingRecord.estado = "offline"
+        } else if (action === "pausa") {
+            existingRecord.estado = "pause"
+        }
+    }
+
     //existingRecord.name = name || existingRecord.name;
-    existingRecord.estado = estado; 
+    //existingRecord.estado = estado; 
     existingRecord.ubication = ubication; 
     existingRecord.action = action;
     existingRecord.dateTime = dateTime;
