@@ -106,4 +106,14 @@
   color: #cac9c9;
   border-radius: 10px;
 }
+
+/* Alineación del texto en las celdas de la tabla */
+.record-table th {
+  text-align: center;
+}
+
+.record-table td {
+  vertical-align: middle;
+}
+
 </style>
