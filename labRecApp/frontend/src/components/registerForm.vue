@@ -38,6 +38,7 @@ import { ref } from "vue";
 import Dropdown from "primevue/dropdown";
 import Calendar from "primevue/calendar";
 import "../styles/registerForm_styles.css"
+import { userAuthentication } from "../tools/store";
 
 export default {
     name: "registerFormComponent",
@@ -57,6 +58,8 @@ export default {
         const selectedReason = ref();
         const selectedDateTime = ref(null);
         const errorMessage = ref("");
+
+        const authStore = userAuthentication();
 
         const actionOptions = [
             { label: "Iniciar jornada", value: "iniciar" },
@@ -105,8 +108,16 @@ export default {
             }
             selectedDateTime.value ? formData.datetime = selectedDateTime.value : formData.datetime = null
             console.log("Datos enviados:", formData);
-            emit("close");
             // APLICAR LOGICA PARA EL BACKEND MAS ADELANTE
+            // Datos para la petición
+            const userEmail = authStore.email;
+            const requestBody = {
+                action: formData.action,
+                dateTime: formData.datetime,
+                ubication: formData.ubication
+            }
+            
+            emit("close");
         };
 
         return {
