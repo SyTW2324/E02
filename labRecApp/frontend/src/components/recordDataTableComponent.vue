@@ -108,11 +108,9 @@
 }
 
 /* Alineación del texto en las celdas de la tabla */
-.record-table th {
-  text-align: center;
-}
-
+.record-table th,
 .record-table td {
+  text-align: center;
   vertical-align: middle;
 }
 
