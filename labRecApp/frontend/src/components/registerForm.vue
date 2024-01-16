@@ -99,7 +99,7 @@ export default {
                 let errorMessage = '';
                 if (error.response) {
                 // El servidor respondió con un código de estado diferente de 2xx
-                errorMessage = error.response.data;
+                errorMessage = JSON.stringify(error.response.data.error);
                 } else if (error.request) {
                 // La solicitud fue realizada, pero no se recibió respuesta
                 errorMessage = 'No se recibió respuesta del servidor';
