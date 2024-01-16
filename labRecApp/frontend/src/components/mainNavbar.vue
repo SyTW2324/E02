@@ -56,6 +56,10 @@ export default {
       registerRequest.value = false;
     }
 
+    const redirecToRecordDataTable = () => {
+      router.push('/record/dataTable');
+    }
+
     const items = [
       {
         label: 'Mi cuenta',
@@ -100,7 +104,7 @@ export default {
           {
             label: 'Registro de usuarios',
             icon: 'pi pi-fw pi-users',
-            to: ''
+            command: redirecToRecordDataTable
           }
         ]
       },

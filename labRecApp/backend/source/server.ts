@@ -15,16 +15,25 @@ mongoose.connect(config.mongoURI); // pasamos la URI de nuestra base de datos en
 const app = express();
 const PORT = 3000;
 app.use(express.json());// Usamos el middleware .json() para que las peticiones a la API se parseen en formato json
-app.use(cors());
-
 // Middleware para manejar solicitudes OPTIONS
 app.options('*', cors());
+app.use(cors());
+
 // Evitamos el problema de no poder recibir solicitudes desde el front
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
-  res.header('Access-Control-Allow-Methods', 'GET, POST'); // Métodos permitidos
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE'); // Métodos permitidos
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeceras permitidas
   next();
+});
+
+app.use(cors({
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+}));
+
+app.use((err:any, req:any, res:any, next:any) => {
+  console.error(err.stack);
+  res.status(500).send('Error interno del servidor');
 });
 
 app.post('/users', async (req: Request, res: Response) => {
@@ -89,7 +98,7 @@ app.patch('/record/:email', async (req:Request, res: Response) => {
   try {
     await updateRecord(req,res);
   } catch (error) {
-    res.status(500).json({error: `No se ha podido actualizar el registro laboral`})
+    res.status(500).json(error)
   }
 });
 

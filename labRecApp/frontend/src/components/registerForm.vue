@@ -40,6 +40,7 @@ import Calendar from "primevue/calendar";
 import "../styles/registerForm_styles.css"
 import { userAuthentication } from "../tools/store";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default {
     name: "registerFormComponent",
@@ -93,10 +94,39 @@ export default {
                 const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
                 const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
                 console.log(recordResponseJson);
-            } catch (error) {
+            } catch (error: any) {
                 console.log("Ha ocurrido un error\n");
-                console.log(error);
+                let errorMessage = '';
+                if (error.response) {
+                // El servidor respondió con un código de estado diferente de 2xx
+                errorMessage = JSON.stringify(error.response.data.error);
+                } else if (error.request) {
+                // La solicitud fue realizada, pero no se recibió respuesta
+                errorMessage = 'No se recibió respuesta del servidor';
+                } else {
+                // Ocurrió un error durante la configuración de la solicitud
+                errorMessage = `Error de configuración de la solicitud: ${error.message}`;
+                }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorMessage,
+                });
             }
+        } 
+
+        const formatDate = (dateUnformated:any) => {
+            var fechaOriginalStr = "";
+            if (dateUnformated) {
+                fechaOriginalStr = dateUnformated;
+            }
+            var fechaOriginal = new Date(fechaOriginalStr);
+            var fechaFormateada;
+            if (fechaOriginal) {
+                fechaFormateada = `${fechaOriginal.toISOString().slice(0, 10)} ${fechaOriginal.toLocaleTimeString("en-US", { hour12: false, hour: "2-digit", minute: "2-digit" })}`;
+            }
+            return fechaFormateada;
         } 
 
         const submitForm = () => {
@@ -123,10 +153,12 @@ export default {
             // APLICAR LOGICA PARA EL BACKEND MAS ADELANTE
             // Datos para la petición
             const userEmail = authStore.email;
+            // FORMATEO DE LA FECHA:
             const requestBody = {
                 action: formData.action,
-                dateTime: formData.datetime,
-                ubication: formData.ubication
+                dateTime: formatDate(formData.datetime),
+                ubication: formData.ubication,
+                jornada: "8:00"
             }
 
             updateValues(userEmail, requestBody);

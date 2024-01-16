@@ -43,7 +43,14 @@ const router = createRouter({
       component: () => import('../views/userProfile.vue'),
       meta: { requiresAuth: true },
       beforeEnter: authorizationGuard
-    }
+    },
+    {
+      path: '/record/dataTable',
+      name: 'recordDataTable',
+      component: () => import('../views/recordDataTable.vue'),
+      meta: { requiresAuth: true },
+      beforeEnter: authorizationGuard
+    },
   ]
 })
 

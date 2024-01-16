@@ -35,14 +35,14 @@
             <!--<div class="extra-info-panel">-->
             <div class="panel-item">
                 <h3 class="golden-text medium-text" >Número de Identificación de la empresa</h3>
-                <p class="small-text" >{{ getUserSecurityNumber() }}</p>
+                <p class="small-text" style="font-weight: bold;">{{ getUserSecurityNumber() }}</p>
             </div>
         </div>
 
         <div class="vacation-days-container">
             <div class="panel-item">
                 <h3 class="golden-text medium-text" >Días de vacacaciones disponibles</h3>
-                <p class="small-text">{{ getUserVacationAvailableDays() }}</p>
+                <p class="small-text" style="font-weight: bold">{{ getUserVacationAvailableDays() }}</p>
             </div>
         </div>
 
