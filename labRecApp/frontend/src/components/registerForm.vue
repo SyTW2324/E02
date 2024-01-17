@@ -25,7 +25,7 @@
             </div>
 
             <div class="button-container">
-                <button style="margin-right: 20px;" @click="submitForm">Enviar</button>
+                <button style="margin-right: 13px;" @click="submitForm">Enviar</button>
                 <button @click="closeFormWithoutSubmit">Cerrar</button>
             </div>
 
