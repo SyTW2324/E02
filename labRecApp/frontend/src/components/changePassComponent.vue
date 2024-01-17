@@ -21,7 +21,10 @@
 export default {
     name: "changePassComponent",
     props: {
-
+        showForm: {
+            type: Boolean,
+            default: false,
+        },
     },
     components: {
 
