@@ -26,7 +26,7 @@
 
             <div class="button-container">
                 <button class="submit-button" @click="submitForm">Enviar</button>
-                <button class="close-button" @click="closeFormWithoutSubmit">Cerrar</button>
+                <button style="margin-left: 13px;" class="close-button" @click="closeFormWithoutSubmit">Cerrar</button>
             </div>
 
             <div v-if="errorMessage" class="error-message">
