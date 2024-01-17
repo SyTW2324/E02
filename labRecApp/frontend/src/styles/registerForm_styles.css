@@ -78,7 +78,6 @@
   padding: 12px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
-  border: 2px solid #000;
 }
 
 .p-timepicker:hover,
