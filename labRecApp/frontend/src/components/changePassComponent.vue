@@ -94,6 +94,7 @@ export default {
             }
 
             updatePass(reqData)
+            emit('close')
         }
 
         const closeFormWithoutSubmit = () => {
