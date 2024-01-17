@@ -40,11 +40,11 @@
 .title {
     text-align: center;
     color: #b28d53;
-    /* Puedes ajustar el color según tus preferencias */
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
 .button-container {
-    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
+    margin-top: 10px;
+    margin-right: 10px; 
   }
