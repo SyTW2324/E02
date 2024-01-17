@@ -75,7 +75,7 @@
   background-color: #fff; /* Fondo blanco apagado */
   color: #b28d53; /* Texto principal dorado */
   font-weight: 700;
-  border: none;
+  border: 2px solid #000; /* Borde negro */
   align-items: center;
   padding: 12px 20px; /* Aumenta el espacio interno */
   border-radius: 8px; /* Bordes redondeados */
@@ -91,9 +91,12 @@
 
 /* Estilo del texto del día en el calendario */
 .p-datepicker-day {
-  color: #b28d53; /* Color del texto del día dorado */
+  color: #fff; /* Color del texto del día blanco */
   font-weight: 700;
   transition: color 0.3s ease; /* Transición suave del color del texto */
+  background-color: #b28d53; /* Fondo dorado */
+  border-radius: 50%; /* Borde redondeado para simular el círculo */
+  padding: 6px; /* Espaciado interior */
 }
 
 /* Efecto de hover para resaltar el texto del día */
@@ -113,6 +116,10 @@
 .p-datepicker-next {
   color: #b28d53; /* Color del icono dorado */
   transition: color 0.3s ease; /* Transición suave del color del icono */
+  background-color: #fff; /* Fondo blanco apagado */
+  border: 2px solid #000; /* Borde negro */
+  padding: 6px; /* Espaciado interior */
+  border-radius: 8px; /* Bordes redondeados */
 }
 
 /* Efecto de hover para resaltar el icono */
