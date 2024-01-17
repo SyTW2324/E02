@@ -15,7 +15,7 @@
                 <InputText v-model="repeatCurrentPassword" type="password" class="full-width" />
             </div>
 
-            <div v-if="selectedAction && selectedAction.value === 'pausa'" class="form-group">
+            <div class="form-group">
                 <label for="newPassword">Nueva contraseña: <span class="required">*</span></label>
                 <InputText v-model="newPassword" type="password" class="full-width" />
             </div>
@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import InputText from "primevue/inputtext";
-
+import {ref} from 'vue'
 
 export default {
     name: "changePassComponent",
@@ -41,12 +41,17 @@ export default {
         },
     },
     components: {
-
+        InputText
     },
     setup(props, { emit }) {
 
+        const currentPassword = ref();
+        const repeatCurrentPassword = ref();
+        const newPassword = ref();
         const submitForm = () => {
-
+            console.log(currentPassword)
+            console.log(repeatCurrentPassword)
+            console.log(newPassword)
         }
 
         const closeFormWithoutSubmit = () => {
@@ -55,7 +60,10 @@ export default {
 
         return {
             submitForm,
-            closeFormWithoutSubmit
+            closeFormWithoutSubmit,
+            currentPassword,
+            repeatCurrentPassword,
+            newPassword
         };
     },
 };
