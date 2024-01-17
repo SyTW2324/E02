@@ -37,6 +37,7 @@ import InputText from "primevue/inputtext";
 import {ref} from 'vue'
 import { userAuthentication } from "../tools/store";
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default {
     name: "changePassComponent",
@@ -59,7 +60,7 @@ export default {
 
         const updatePass = async ( body: any) => {
             try {
-                
+                await axios.get(`https://perfect-cod-pantsuit.cyclic.app/change/password`, body);
             } catch (error: any) {
                     console.log("Ha ocurrido un error\n");
                     let errorMessage = '';
