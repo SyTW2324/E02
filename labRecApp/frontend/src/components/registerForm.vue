@@ -170,6 +170,7 @@ export default {
             }
 
             updateValues(userEmail, requestBody);
+            window.location.reload();
             
             emit("close");
         };
