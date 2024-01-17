@@ -8,12 +8,16 @@
 
 <script setup lang="ts">
 import './styles/app_style.css';
-import { onMounted } from 'vue';
+import { createHydrationRenderer, onBeforeMount, onMounted } from 'vue';
 import { userAuthentication } from './tools/store';
 
 const authStore = userAuthentication();
 
-onMounted(() => {
+//onMounted(() => {
+//  authStore.initialize();
+//});
+
+onBeforeMount(() => {
   authStore.initialize();
 });
 </script>
