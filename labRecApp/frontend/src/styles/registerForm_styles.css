@@ -47,4 +47,20 @@
 .button-container {
     margin-top: 10px;
     margin-right: 10px; 
-  }
+}
+
+.submit-button,
+.close-button {
+    background-color: #b28d53; /* Color dorado */
+    color: #000; /* Texto en negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.submit-button:hover,
+.close-button:hover {
+    background-color: #986f41; /* Cambio de color dorado en hover */
+}
