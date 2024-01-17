@@ -93,7 +93,7 @@
   color: #b28d53; /* Color del texto del día dorado */
   font-weight: 700;
   transition: color 0.3s ease; /* Transición suave del color del texto */
-  background-color: #000; /* Fondo negro */
+  background-color: #00000048; /* Fondo negro */
   border-radius: 50%; /* Borde redondeado para simular el círculo */
   padding: 6px; /* Espaciado interior */
 }
@@ -116,7 +116,7 @@
   color: #000; /* Color del icono negro */
   transition: color 0.3s ease; /* Transición suave del color del icono */
   background-color: #b28d53; /* Fondo dorado */
-  border: 2px solid #000; /* Borde negro */
+  /*border: 2px solid #000;  Borde negro */
   padding: 6px; /* Espaciado interior */
   border-radius: 8px; /* Bordes redondeados */
 }
