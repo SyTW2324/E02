@@ -116,6 +116,7 @@
   background-color: #b28d53;
   padding: 6px;
   border-radius: 8px;
+  width: auto;
 }
 
 .p-datepicker-monthpicker-icon:hover,
