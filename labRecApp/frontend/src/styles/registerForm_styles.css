@@ -51,13 +51,15 @@
 
 .submit-button,
 .close-button {
-    background-color: #b28d53; /* Color dorado */
-    color: #000; /* Texto en negro */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    background-color: #b28d53;
+    color: #333;
+    font-weight: 700;
+    border: none;
+    align-items: center;
+    width: 75px;
+    padding: 8px 15px;
+    border-radius: 5px/* Transición suave del color de fondo */
 }
 
 .submit-button:hover,
