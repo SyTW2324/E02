@@ -2,7 +2,7 @@
     <div v-if="showForm" class="register-form">
         <div class="form-container">
             <div class="title">
-              <h2>Registro de Actividad</h2>
+              <h2>Cambio de contraseña</h2>
             </div>
 
             <div class="button-container">
