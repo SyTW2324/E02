@@ -6,7 +6,9 @@ import { createUser, findUserByEmail, getUsers } from './controllers/user.contro
 import { userLoginValidator } from './controllers/userLogin.controller'
 import { createRecordInput, getRecords, findRecordByEmail, updateRecord } from './controllers/laboralRecord_controller'
 import cors from 'cors';
-
+import secretKey  from "./config/config"; 
+import jwt from 'jsonwebtoken';
+import {obtenerDatosDelUsuario} from "./controllers/verifyToken"
 // Nos conectamos a la base de datos:
 mongoose.connect(config.mongoURI); // pasamos la URI de nuestra base de datos en la nube
 
@@ -67,6 +69,41 @@ app.post('/users/login', async (req:Request, res: Response) => {
     await userLoginValidator(req, res);
   } catch (error) {
     res.status(500).json({error: `Error al encontrar el usuario`});
+  }
+});
+
+//* VERIFICACION DEL TOKEN
+
+app.get('/verify', async (req:Request, res: Response) => {
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (!token) {
+      return res.status(401).json({ error: 'Acceso no autorizado. Token no proporcionado.' });
+    }
+
+    const secretKeyAsString: string = (secretKey as any).mongoURI;
+
+    // Verifica el token
+    jwt.verify(token, secretKeyAsString, async (err, decoded) => {
+      if (err) {
+        return res.status(403).json({ error: 'Acceso no autorizado. Token inválido.' });
+      }
+
+      // Decodificación exitosa, obtén los datos del usuario
+      const userData = await obtenerDatosDelUsuario(decoded);
+
+      // Si no se pueden obtener los datos del usuario, maneja el error adecuadamente
+      if (!userData) {
+        return res.status(500).json({ error: 'Error al obtener los datos del usuario.' });
+      }
+
+      // Devuelve los datos del usuario junto con la respuesta
+      res.status(200).json({ message: 'Token verificado con éxito.', userData });
+    });
+  } catch (error) {
+    console.error('Error al manejar la solicitud:', error);
+    res.status(500).json({ error: 'Error interno del servidor.' });
   }
 });
 
