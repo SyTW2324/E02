@@ -55,9 +55,16 @@ export default {
         const errorMessage = ref("");
 
         const submitForm = () => {
-            console.log(currentPassword)
-            console.log(repeatCurrentPassword)
-            console.log(newPassword)
+
+            if (!currentPassword.value || !repeatCurrentPassword.value || !newPassword.value) {
+                errorMessage.value = "Por favor, complete todos los campos obligatorios.";
+                return;
+            }
+
+
+            console.log(currentPassword.value)
+            console.log(repeatCurrentPassword.value)
+            console.log(newPassword.value)
         }
 
         const closeFormWithoutSubmit = () => {
