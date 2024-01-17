@@ -69,8 +69,8 @@ export default {
         const actionOptions = [
             { label: "Iniciar jornada", value: "iniciar" },
             { label: "Finalizar jornada", value: "finalizar" },
-            { label: "Comienzo de pausa laboral", value: "pausa" },
-            { label: "Vuelta de la pausa laboral", value: "retorno"}
+            { label: "Pausa laboral", value: "pausa" },
+            { label: "Vuelta al trabajo", value: "retorno"}
         ];
 
         const reasonOptions = [
@@ -78,14 +78,14 @@ export default {
             { label: "Comida", value: "comida" },
             { label: "Médico", value: "medico" },
             { label: "Desayuno", value: "desayuno" },
-            { label: "Asuntos familiares", value: "asuntos" },
+            { label: "Asuntos personales", value: "asuntos" },
             { label: "Otros asuntos", value: "otros" },
         ];
 
         const ubicationOptions = [
             { label: "Trabajo desde casa", value: "casa" },
             { label: "Trabajo en la oficina", value: "oficina" },
-            { label: "Desplazamiento hacia oficina cliente", value: "cliente" }
+            { label: "Desde la oficina cliente", value: "cliente" }
         ]; 
 
         const closeFormOnEscape = () => {
