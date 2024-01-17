@@ -24,8 +24,10 @@
                 <Calendar v-model="selectedDateTime" showTime class="full-width" />
             </div>
 
-            <button @click="submitForm">Enviar</button>
-            <button @click="closeFormWithoutSubmit">Cerrar</button>
+            <div class="button-container">
+                <button @click="submitForm">Enviar</button>
+                <button @click="closeFormWithoutSubmit">Cerrar</button>
+            </div>
 
             <div v-if="errorMessage" class="error-message">
                 {{ errorMessage }}

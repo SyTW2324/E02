@@ -44,3 +44,7 @@
     font-size: 1.5em;
     margin-bottom: 20px;
 }
+
+.button-container {
+    margin-top: 10px; /* Puedes ajustar el valor según sea necesario */
+  }
