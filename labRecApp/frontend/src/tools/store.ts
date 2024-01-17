@@ -41,6 +41,17 @@ export const userAuthentication = defineStore({
       this.userAuthenticated = true;
       //Se almacena el Token en el localStorage del navegador
       localStorage.setItem('Token', this.token);
+
+      localStorage.setItem('UserData', JSON.stringify({
+        email: user.email,
+        name: user.name,
+        surnames: user.surnames,
+        dni: user.dni,
+        phone: user.phone,
+        administrator: user.administrator,
+        afiliateNumber: user.afiliateNumber,
+        vacationsDays: user.vacationsDays
+      }));
     },
     getUserData() {
       return {
@@ -85,8 +96,20 @@ export const userAuthentication = defineStore({
     },
     initialize() {
       const storedToken = localStorage.getItem('Token');
-      if (storedToken) {
-        this.verifyAndSetUser(storedToken);
+      const storedUserData = localStorage.getItem('UserData');
+      if (storedToken && storedUserData) {
+        const userData = JSON.parse(storedUserData);
+        
+        this.token = userData.token;
+        this.email = userData.email;
+        this.name = userData.name;
+        this.surnames = userData.surnames;
+        this.dni = userData.dni;
+        this.phone = userData.phone;
+        this.administrator = userData.administrator;
+        this.afiliateNumber = userData.afiliateNumber;
+        this.vacationsDays = userData.vacationsDays;
+        //this.verifyAndSetUser(storedToken);
       }
     },
     async verifyAndSetUser(token: string) {
