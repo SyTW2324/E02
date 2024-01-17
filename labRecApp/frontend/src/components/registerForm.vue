@@ -24,7 +24,10 @@
                 <Calendar v-model="selectedDateTime" showTime class="full-width" />
             </div>
 
-            <button @click="submitForm">Enviar</button>
+            <div class="button-container">
+                <button class="submit-button" @click="submitForm">Enviar</button>
+                <button style="margin-left: 13px;" class="close-button" @click="closeFormWithoutSubmit">Cerrar</button>
+            </div>
 
             <div v-if="errorMessage" class="error-message">
                 {{ errorMessage }}
@@ -89,11 +92,17 @@ export default {
             emit("close");
         }
 
+        const closeFormWithoutSubmit = () => {
+            // Aquí puedes agregar lógica adicional si es necesario
+            emit("close");
+        };
+
         const updateValues = async (param:string, body: any) => {
             try {
-                const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
-                const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
-                console.log(recordResponseJson);
+                await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
+                //const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
+                //console.log(recordResponseJson);
+                window.location.reload();
             } catch (error: any) {
                 console.log("Ha ocurrido un error\n");
                 let errorMessage = '';
@@ -162,7 +171,7 @@ export default {
             }
 
             updateValues(userEmail, requestBody);
-            
+
             emit("close");
         };
 
@@ -176,7 +185,8 @@ export default {
             ubicationOptions,
             submitForm,
             errorMessage,
-            closeFormOnEscape
+            closeFormOnEscape,
+            closeFormWithoutSubmit
         };
     },
 };

@@ -41,6 +41,17 @@ export const userAuthentication = defineStore({
       this.userAuthenticated = true;
       //Se almacena el Token en el localStorage del navegador
       localStorage.setItem('Token', this.token);
+
+      localStorage.setItem('UserData', JSON.stringify({
+        email: user.email,
+        name: user.name,
+        surnames: user.surnames,
+        dni: user.dni,
+        phone: user.phone,
+        administrator: user.administrator,
+        afiliateNumber: user.afiliateNumber,
+        vacationsDays: user.vacationsDays
+      }));
     },
     getUserData() {
       return {
@@ -68,6 +79,7 @@ export const userAuthentication = defineStore({
       this.vacationsDays = 0;
       //Se elimina el token del localStorage 
       localStorage.removeItem('Token');
+      localStorage.removeItem('UserData');
     },
     async login(credentials: { email: string, password: string }) {
       try {
@@ -81,6 +93,44 @@ export const userAuthentication = defineStore({
         this.loginError = true;
         this.clearAuthenticationData(); //Nos aseguramos de que el store queda vacio, y el localStorage no tiene nada
         return "Error"
+      }
+    },
+    initialize() {
+      const storedToken = localStorage.getItem('Token');
+      const storedUserData = localStorage.getItem('UserData');
+      if (storedToken && storedUserData) {
+        const userData = JSON.parse(storedUserData);
+
+        this.token = userData.token;
+        this.email = userData.email;
+        this.name = userData.name;
+        this.surnames = userData.surnames;
+        this.dni = userData.dni;
+        this.phone = userData.phone;
+        this.administrator = userData.administrator;
+        this.afiliateNumber = userData.afiliateNumber;
+        this.vacationsDays = userData.vacationsDays;
+        this.userAuthenticated = true;
+        //this.verifyAndSetUser(storedToken);
+      }
+    },
+    async verifyAndSetUser(token: string) {
+      try {
+        const response = await axios.get('https://perfect-cod-pantsuit.cyclic.app/users/verify', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+  
+        // DATOS DEL USUARIO
+        const userData = response.data.userData;
+  
+        // Llama a la acción para establecer los datos del usuario en el store
+        this.setUserData(userData);
+      } catch (error) {
+        // Maneja los errores, por ejemplo, limpia los datos del usuario en caso de error
+        console.error('Error al verificar y establecer los datos del usuario:', error);
+        this.clearAuthenticationData();
       }
     },
   }
