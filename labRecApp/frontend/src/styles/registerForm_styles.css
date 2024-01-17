@@ -144,3 +144,7 @@
 .p-datepicker-weekday:hover {
   color: #fff; /* Color más claro al pasar el ratón */
 }
+
+.p-datepicker-title {
+    color: #b28d53;
+}
