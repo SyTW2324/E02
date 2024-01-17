@@ -25,6 +25,7 @@
             </div>
 
             <button @click="submitForm">Enviar</button>
+            <button @click="closeFormWithoutSubmit">Cerrar</button>
 
             <div v-if="errorMessage" class="error-message">
                 {{ errorMessage }}
@@ -88,6 +89,11 @@ export default {
         const closeFormOnEscape = () => {
             emit("close");
         }
+
+        const closeFormWithoutSubmit = () => {
+            // Aquí puedes agregar lógica adicional si es necesario
+            emit("close");
+        };
 
         const updateValues = async (param:string, body: any) => {
             try {
@@ -176,7 +182,8 @@ export default {
             ubicationOptions,
             submitForm,
             errorMessage,
-            closeFormOnEscape
+            closeFormOnEscape,
+            closeFormWithoutSubmit
         };
     },
 };
