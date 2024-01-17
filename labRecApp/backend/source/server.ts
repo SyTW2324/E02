@@ -141,6 +141,16 @@ app.patch('/record/:email', async (req:Request, res: Response) => {
   }
 });
 
+// * Cambio de contraseña
+
+app.get('/change/password', async (req:Request, res: Response) => {
+  try {
+    //await
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
 // * PUERTO DE ESCUCHA
 app.listen(PORT, () => {
   console.log(`\n ** Servidor escuchando en el puerto ${PORT} **`)
