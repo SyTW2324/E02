@@ -71,10 +71,9 @@
 .p-datepicker-calendar,
 .p-datepicker-header {
   cursor: pointer;
-  background-color: #000; /* Fondo negro */
+  background-color: #333; /* Fondo negro */
   color: #b28d53; /* Texto principal dorado */
   font-weight: 700;
-  border: 2px solid #000; /* Borde negro */
   align-items: center;
   padding: 12px 20px; /* Aumenta el espacio interno */
   border-radius: 8px; /* Bordes redondeados */
@@ -93,7 +92,7 @@
   color: #b28d53; /* Color del texto del día dorado */
   font-weight: 700;
   transition: color 0.3s ease; /* Transición suave del color del texto */
-  background-color: #00000048; /* Fondo negro */
+  background-color: #333; /* Fondo negro */
   border-radius: 50%; /* Borde redondeado para simular el círculo */
   padding: 6px; /* Espaciado interior */
 }
