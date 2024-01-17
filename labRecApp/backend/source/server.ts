@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 import { createUser, findUserByEmail, getUsers } from './controllers/user.controller'
 import { userLoginValidator } from './controllers/userLogin.controller'
 import { createRecordInput, getRecords, findRecordByEmail, updateRecord } from './controllers/laboralRecord_controller'
+import { changePassword } from './controllers/changePass_controller'
 import cors from 'cors';
 import secretKey  from "./config/config"; 
 import jwt from 'jsonwebtoken';
@@ -145,7 +146,7 @@ app.patch('/record/:email', async (req:Request, res: Response) => {
 
 app.get('/change/password', async (req:Request, res: Response) => {
   try {
-    //await
+    await changePassword(req,res)
   } catch (error) {
     res.status(500).json(error)
   }
