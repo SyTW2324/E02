@@ -83,5 +83,30 @@ export const userAuthentication = defineStore({
         return "Error"
       }
     },
+    initialize() {
+      const storedToken = localStorage.getItem('Token');
+      if (storedToken) {
+        this.verifyAndSetUser(storedToken);
+      }
+    },
+    async verifyAndSetUser(token: string) {
+      try {
+        const response = await axios.get('https://perfect-cod-pantsuit.cyclic.app/users/verify', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+  
+        // DATOS DEL USUARIO
+        const userData = response.data.userData;
+  
+        // Llama a la acción para establecer los datos del usuario en el store
+        this.setUserData(userData);
+      } catch (error) {
+        // Maneja los errores, por ejemplo, limpia los datos del usuario en caso de error
+        console.error('Error al verificar y establecer los datos del usuario:', error);
+        this.clearAuthenticationData();
+      }
+    },
   }
 })
