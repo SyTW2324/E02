@@ -92,7 +92,7 @@ export const userAuthentication = defineStore({
       } catch (error) {
         this.loginError = true;
         this.clearAuthenticationData(); //Nos aseguramos de que el store queda vacio, y el localStorage no tiene nada
-        return "Error"
+        return "Error" // enviamos error para que lo detecte la llamada de la funcion
       }
     },
     initialize() {

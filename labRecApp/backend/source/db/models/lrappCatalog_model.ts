@@ -5,6 +5,7 @@ interface lrappCatalog_interface extends Document {
   catalogValue: string;
 }
 
+// esquema del catalogo
 const lrappCatalogSchema: Schema = new Schema({
   catalogType: {type: String, require:true},
   catalogValue: {type: String, require:true}
