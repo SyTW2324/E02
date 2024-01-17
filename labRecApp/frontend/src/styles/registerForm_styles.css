@@ -126,6 +126,7 @@
 .p-datepicker-monthpicker-icon:hover,
 .p-datepicker-prev:hover,
 .p-datepicker-next:hover {
+  background-color: #b28d53;
   color: #333; /* Color del icono más oscuro al pasar el ratón */
 }
 
@@ -137,7 +138,8 @@
 
 /* Estilo de los días de la semana en el encabezado del calendario */
 .p-datepicker-weekday {
-  color: #b28d53; /* Color del texto de los días de la semana dorado */
+  background-color: #b28d53;
+  color: #ccc; /* Color del texto de los días de la semana dorado */
 }
 
 /* Efecto de hover para resaltar los días de la semana en el encabezado */
