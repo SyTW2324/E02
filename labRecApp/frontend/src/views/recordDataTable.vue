@@ -1,8 +1,12 @@
 <template>
-    <div>
+    <div class="app" id="registroUsuarios">
+      <header>
         <NavBarComponent />
-        <RecordDataTableComponent />
+      </header>
+      <RecordDataTableComponent />
+      <footer>
         <footerComponent />
+      </footer>
     </div>
 </template>
 
@@ -21,4 +25,9 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-height: 740px) {
+    #registroUsuarios footer, #registroUsuarios header {
+        position: static;
+    }
+}
 </style>
