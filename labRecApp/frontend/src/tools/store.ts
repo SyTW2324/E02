@@ -79,6 +79,7 @@ export const userAuthentication = defineStore({
       this.vacationsDays = 0;
       //Se elimina el token del localStorage 
       localStorage.removeItem('Token');
+      localStorage.removeItem('UserData');
     },
     async login(credentials: { email: string, password: string }) {
       try {
@@ -99,7 +100,7 @@ export const userAuthentication = defineStore({
       const storedUserData = localStorage.getItem('UserData');
       if (storedToken && storedUserData) {
         const userData = JSON.parse(storedUserData);
-        
+
         this.token = userData.token;
         this.email = userData.email;
         this.name = userData.name;
@@ -109,6 +110,7 @@ export const userAuthentication = defineStore({
         this.administrator = userData.administrator;
         this.afiliateNumber = userData.afiliateNumber;
         this.vacationsDays = userData.vacationsDays;
+        this.userAuthenticated = true;
         //this.verifyAndSetUser(storedToken);
       }
     },

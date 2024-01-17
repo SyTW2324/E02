@@ -15,7 +15,7 @@ app.use(PrimeVue)
 
 const authStore = userAuthentication();
 // SI EL USUARIO ESTA AUTENTIFICADO SE REFRESCAN SUS DATOS...
-console.log(authStore.getAuthentication())
+//console.log(authStore.getAuthentication())
 if (authStore.getAuthentication()) {
     authStore.initialize();
 }
