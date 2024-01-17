@@ -70,12 +70,69 @@
 .p-timepicker,
 .p-datepicker-calendar,
 .p-datepicker-header {
-    cursor: pointer;
-    background-color: #b28d53;
-    color: #333;
-    font-weight: 700;
-    border: none;
-    align-items: center;
-    padding: 8px 15px;
-    border-radius: 5px  
+  cursor: pointer;
+  background-color: #b28d53; /* Fondo */
+  color: #333; /* Texto principal */
+  font-weight: 700;
+  border: none;
+  align-items: center;
+  padding: 12px 20px; /* Aumenta el espacio interno */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Efecto de hover para resaltar */
+.p-timepicker:hover,
+.p-datepicker-calendar:hover,
+.p-datepicker-header:hover {
+  background-color: #8f6f3a; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+/* Estilo del texto del día en el calendario */
+.p-datepicker-day {
+  color: #333; /* Color del texto del día */
+  font-weight: 700;
+  transition: color 0.3s ease; /* Transición suave del color del texto */
+}
+
+/* Efecto de hover para resaltar el texto del día */
+.p-datepicker-day:hover {
+  color: #fff; /* Texto del día más claro al pasar el ratón */
+}
+
+/* Estilo del día seleccionado en el calendario */
+.p-datepicker-day.p-highlight {
+  background-color: #8f6f3a; /* Fondo del día seleccionado */
+  color: #fff; /* Texto del día seleccionado */
+}
+
+/* Icono del botón del año y mes en el encabezado del calendario */
+.p-datepicker-monthpicker-icon,
+.p-datepicker-prev,
+.p-datepicker-next {
+  color: #333; /* Color del icono */
+  transition: color 0.3s ease; /* Transición suave del color del icono */
+}
+
+/* Efecto de hover para resaltar el icono */
+.p-datepicker-monthpicker-icon:hover,
+.p-datepicker-prev:hover,
+.p-datepicker-next:hover {
+  color: #8f6f3a; /* Color del icono más oscuro al pasar el ratón */
+}
+
+/* Días desactivados en el calendario */
+.p-datepicker-day.p-disabled {
+  color: #ccc; /* Color del texto de días desactivados */
+  cursor: not-allowed; /* Cursor de no permitido */
+}
+
+/* Estilo de los días de la semana en el encabezado del calendario */
+.p-datepicker-weekday {
+  color: #b28d53; /* Color del texto de los días de la semana */
+}
+
+/* Efecto de hover para resaltar los días de la semana en el encabezado */
+.p-datepicker-weekday:hover {
+  color: #8f6f3a; /* Color más oscuro al pasar el ratón */
 }
