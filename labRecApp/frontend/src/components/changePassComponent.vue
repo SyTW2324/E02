@@ -9,14 +9,11 @@
                 <button class="submit-button" @click="submitForm">Enviar</button>
                 <button style="margin-left: 13px;" class="close-button" @click="closeFormWithoutSubmit">Cerrar</button>
             </div>
-
-
         </div>
     </div>
 </template>
 
 <script lang="ts">
-
 
 export default {
     name: "changePassComponent",
