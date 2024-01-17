@@ -18,9 +18,7 @@ const authStore = userAuthentication();
 //});
 
 onBeforeMount(() => {
-  if (authStore.getAuthentication()) {
-    authStore.initialize();
-  }
+  authStore.initialize();
 });
 </script>
 
