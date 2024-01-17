@@ -35,6 +35,8 @@
 <script lang="ts">
 import InputText from "primevue/inputtext";
 import {ref} from 'vue'
+import { userAuthentication } from "../tools/store";
+import Swal from 'sweetalert2';
 
 export default {
     name: "changePassComponent",
@@ -53,6 +55,29 @@ export default {
         const repeatCurrentPassword = ref();
         const newPassword = ref();
         const errorMessage = ref("");
+        const authStore = userAuthentication();
+
+        const updatePass = async ( body: any) => {
+            try {
+                
+            } catch (error: any) {
+                    console.log("Ha ocurrido un error\n");
+                    let errorMessage = '';
+                    if (error.response) {
+                        errorMessage = JSON.stringify(error.response.data.error);
+                    } else if (error.request) {
+                        errorMessage = 'No se recibió respuesta del servidor';
+                    } else {
+                        errorMessage = `Error de configuración de la solicitud: ${error.message}`;
+                    }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorMessage,
+                });
+            }
+        }
 
         const submitForm = () => {
 
@@ -61,10 +86,13 @@ export default {
                 return;
             }
 
+            const reqData = {
+                email: authStore.email,
+                oldPass: currentPassword,
+                newPass: newPassword
+            }
 
-            console.log(currentPassword.value)
-            console.log(repeatCurrentPassword.value)
-            console.log(newPassword.value)
+            updatePass(reqData)
         }
 
         const closeFormWithoutSubmit = () => {
