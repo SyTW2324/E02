@@ -76,7 +76,6 @@
     font-weight: 700;
     border: none;
     align-items: center;
-    width: 75px;
     padding: 8px 15px;
-    border-radius: 5px/* Transición suave del color de fondo */   
+    border-radius: 5px  
 }
