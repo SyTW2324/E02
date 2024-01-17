@@ -67,7 +67,7 @@
     background-color: #986f41; /* Cambio de color dorado en hover */
 }
 
-.p-datepicker {
+.p-datepicker-group-container {
     cursor: pointer;
     background-color: #b28d53;
     color: #333;
