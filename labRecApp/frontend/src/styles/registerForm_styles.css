@@ -59,20 +59,21 @@
     align-items: center;
     width: 75px;
     padding: 8px 15px;
-    border-radius: 5px/* Transición suave del color de fondo */
+    border-radius: 5px
 }
 
 .submit-button:hover,
 .close-button:hover {
-    background-color: #986f41; /* Cambio de color dorado en hover */
+    background-color: #986f41; 
 }
 
+/* Estilos invertidos del calendar */
 .p-timepicker,
 .p-datepicker-calendar,
 .p-datepicker-header {
   cursor: pointer;
-  background-color: #b28d53; /* Fondo */
-  color: #333; /* Texto principal */
+  background-color: #fff; /* Fondo blanco apagado */
+  color: #b28d53; /* Texto principal dorado */
   font-weight: 700;
   border: none;
   align-items: center;
@@ -85,32 +86,32 @@
 .p-timepicker:hover,
 .p-datepicker-calendar:hover,
 .p-datepicker-header:hover {
-  background-color: #8f6f3a; /* Color de fondo más oscuro al pasar el ratón */
+  background-color: #f5f5f5; /* Fondo blanco más oscuro al pasar el ratón */
 }
 
 /* Estilo del texto del día en el calendario */
 .p-datepicker-day {
-  color: #333; /* Color del texto del día */
+  color: #b28d53; /* Color del texto del día dorado */
   font-weight: 700;
   transition: color 0.3s ease; /* Transición suave del color del texto */
 }
 
 /* Efecto de hover para resaltar el texto del día */
 .p-datepicker-day:hover {
-  color: #fff; /* Texto del día más claro al pasar el ratón */
+  color: #333; /* Texto del día más oscuro al pasar el ratón */
 }
 
 /* Estilo del día seleccionado en el calendario */
 .p-datepicker-day.p-highlight {
-  background-color: #8f6f3a; /* Fondo del día seleccionado */
-  color: #fff; /* Texto del día seleccionado */
+  background-color: #f5f5f5; /* Fondo del día seleccionado */
+  color: #333; /* Texto del día seleccionado */
 }
 
 /* Icono del botón del año y mes en el encabezado del calendario */
 .p-datepicker-monthpicker-icon,
 .p-datepicker-prev,
 .p-datepicker-next {
-  color: #333; /* Color del icono */
+  color: #b28d53; /* Color del icono dorado */
   transition: color 0.3s ease; /* Transición suave del color del icono */
 }
 
@@ -118,7 +119,7 @@
 .p-datepicker-monthpicker-icon:hover,
 .p-datepicker-prev:hover,
 .p-datepicker-next:hover {
-  color: #8f6f3a; /* Color del icono más oscuro al pasar el ratón */
+  color: #333; /* Color del icono más oscuro al pasar el ratón */
 }
 
 /* Días desactivados en el calendario */
@@ -129,10 +130,10 @@
 
 /* Estilo de los días de la semana en el encabezado del calendario */
 .p-datepicker-weekday {
-  color: #b28d53; /* Color del texto de los días de la semana */
+  color: #b28d53; /* Color del texto de los días de la semana dorado */
 }
 
 /* Efecto de hover para resaltar los días de la semana en el encabezado */
 .p-datepicker-weekday:hover {
-  color: #8f6f3a; /* Color más oscuro al pasar el ratón */
+  color: #333; /* Color más oscuro al pasar el ratón */
 }
