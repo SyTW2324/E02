@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="datetime">Fecha y hora: <span class="required">*</span></label>
-                <Calendar v-model="selectedDateTime" showTime class="full-width" />
+                <Calendar v-model="selectedDateTime" showTime class="full-width calendar-style" />
             </div>
 
             <div class="button-container">

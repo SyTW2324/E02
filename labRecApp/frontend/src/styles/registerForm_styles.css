@@ -66,3 +66,15 @@
 .close-button:hover {
     background-color: #986f41; /* Cambio de color dorado en hover */
 }
+
+.calendar-style {
+    cursor: pointer;
+    background-color: #b28d53;
+    color: #333;
+    font-weight: 700;
+    border: none;
+    align-items: center;
+    width: 75px;
+    padding: 8px 15px;
+    border-radius: 5px/* Transición suave del color de fondo */   
+}
