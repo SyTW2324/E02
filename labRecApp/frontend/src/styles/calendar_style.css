@@ -1,0 +1,60 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+@media screen and (max-height: 710px) {
+    #calendar footer, #calendar header {
+        position: static;
+    }
+}
+
+.calendario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.componenteCalendario {
+    width: 500px;
+}
+
+.p-datepicker-calendar {
+    height: 390px;
+}
+
+.p-datepicker {
+    background-color: #c9c9c9;
+    border-radius: 20px;
+}
+
+.p-datepicker-header {
+    background-color: #b28d53;
+    border-radius: 20px;
+    border-color: #b28d53;
+}
+
+.p-datepicker-month {
+    color: #363a3d;
+    font-size: large;
+}
+
+.p-datepicker-year {
+    color: #363a3d;
+    font-size: large;
+}
+
+.p-datepicker-decade {
+    color: #363a3d;
+    font-size: large;
+}
+
+.p-datepicker-prev-icon {
+    color: #363a3d;
+}
+
+.p-datepicker-next-icon {
+    color: #363a3d;
+}
