@@ -24,6 +24,10 @@
                 <button class="submit-button" @click="submitForm">Enviar</button>
                 <button style="margin-left: 13px;" class="close-button" @click="closeFormWithoutSubmit">Cerrar</button>
             </div>
+
+            <div v-if="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
         </div>
     </div>
 </template>
@@ -48,6 +52,8 @@ export default {
         const currentPassword = ref();
         const repeatCurrentPassword = ref();
         const newPassword = ref();
+        const errorMessage = ref("");
+
         const submitForm = () => {
             console.log(currentPassword)
             console.log(repeatCurrentPassword)
@@ -63,7 +69,8 @@ export default {
             closeFormWithoutSubmit,
             currentPassword,
             repeatCurrentPassword,
-            newPassword
+            newPassword,
+            errorMessage
         };
     },
 };
