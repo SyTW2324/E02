@@ -99,9 +99,10 @@ export default {
 
         const updateValues = async (param:string, body: any) => {
             try {
-                const recordRespone = await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
-                const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
-                console.log(recordResponseJson);
+                await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/record/${param}`, body);
+                //const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
+                //console.log(recordResponseJson);
+                window.location.reload();
             } catch (error: any) {
                 console.log("Ha ocurrido un error\n");
                 let errorMessage = '';
@@ -170,8 +171,7 @@ export default {
             }
 
             updateValues(userEmail, requestBody);
-            window.location.reload();
-            
+
             emit("close");
         };
 
