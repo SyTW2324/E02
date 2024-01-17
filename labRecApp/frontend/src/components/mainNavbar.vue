@@ -60,6 +60,14 @@ export default {
       router.push('/record/dataTable');
     }
 
+    const redirectToManual = () => {
+      router.push('/manual')
+    }
+
+    const redirectToCalendar = () => {
+      router.push('/calendar')
+    }
+
     const items = [
       {
         label: 'Mi cuenta',
@@ -111,12 +119,12 @@ export default {
       {
         label: 'Calendario',
         icon: 'pi pi-fw pi-calendar',
-        to: '',
+        command: redirectToCalendar,
       },
       {
         label: 'Manual',
         icon: 'pi pi-fw pi-info-circle',
-        to: '',
+        command: redirectToManual,
       }
     ];
 
