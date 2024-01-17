@@ -51,6 +51,20 @@ const router = createRouter({
       meta: { requiresAuth: true },
       beforeEnter: authorizationGuard
     },
+    {
+      path: '/manual',
+      name: 'manual',
+      component: () => import('../views/manual.vue'),
+      meta: { requiresAuth: true },
+      beforeEnter: authorizationGuard
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: () => import('../views/calendar.vue'),
+      meta: { requiresAuth: true },
+      beforeEnter: authorizationGuard
+    },
   ]
 })
 

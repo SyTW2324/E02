@@ -5,8 +5,32 @@
     min-height: 100vh;
 }
 
-@media screen and (max-height: 760px) {
-    #profile footer, #profile header {
+@media screen and (max-height: 650px) {
+    #manual footer, #manual header {
         position: static;
     }
+}
+
+#contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 0 auto;
+    width: 80%; /* Cambiado a porcentaje para adaptarse al tamaño de la pantalla */
+    height: 65vh;
+    min-height: 300px;
+    max-width: 880px;
+    background-color: #cac9c9;
+    border: 1px solid #cac9c9;
+    border-radius: 10px;
+}
+
+#visorPDF {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
 }
