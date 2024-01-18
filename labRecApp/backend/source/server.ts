@@ -147,7 +147,7 @@ app.patch('/record/:email', async (req:Request, res: Response) => {
 
 // * Cambio de contraseña
 
-app.get('/change/password/:email', async (req:Request, res: Response) => {
+app.patch('/change/password/:email', async (req:Request, res: Response) => {
   try {
     await changePassword(req,res)
   } catch (error) {
