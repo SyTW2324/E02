@@ -25,16 +25,26 @@ app.use(cors());
 //!mas opciones si fuese necesaio
 
 // Evitamos el problema de no poder recibir solicitudes desde el front
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE'); // Métodos permitidos
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeceras permitidas
-  next();
-});
+//app.use((req, res, next) => {
+//  res.header('Access-Control-Allow-Origin', '*'); // Permitir solicitudes desde cualquier origen
+//  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE'); // Métodos permitidos
+//  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Cabeceras permitidas
+//  next();
+//});
+//
+//app.use(cors({
+//  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+//}));
 
-app.use(cors({
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-}));
+// Configuración CORS
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+};
+
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use((err:any, req:any, res:any, next:any) => {
   console.error(err.stack);
