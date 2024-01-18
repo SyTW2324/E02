@@ -36,19 +36,12 @@ app.use(express.json());// Usamos el middleware .json() para que las peticiones 
 //  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 //}));
 
-// Configuración CORS
-const corsOptions = {
-  origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type, Authorization',
-};
-
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
-
-app.use((err:any, req:any, res:any, next:any) => {
-  console.error(err.stack);
-  res.status(500).send('Error interno del servidor');
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Reemplaza con tu origen permitido
+  res.setHeader('Access-Control-Allow-Methods', 'PATCH, GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
 });
 
 app.post('/users', async (req: Request, res: Response) => {
