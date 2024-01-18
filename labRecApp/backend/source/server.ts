@@ -19,8 +19,8 @@ const app = express();
 const PORT = 3000;
 app.use(express.json());// Usamos el middleware .json() para que las peticiones a la API se parseen en formato json
 // Middleware para manejar solicitudes OPTIONS
-app.options('*', cors());
-app.use(cors());
+//app.options('*', cors());
+//app.use(cors());
 
 //!mas opciones si fuese necesaio
 
