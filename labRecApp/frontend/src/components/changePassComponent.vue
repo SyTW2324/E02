@@ -60,7 +60,7 @@ export default {
 
         const updatePass = async ( body: any) => {
             try {
-                await axios.get(`https://perfect-cod-pantsuit.cyclic.app/change/password`, body);
+                await axios.patch(`https://perfect-cod-pantsuit.cyclic.app/change/password${authStore.email}`, body);
                 let responseMessage = '';
                 
                 Swal.fire({
@@ -96,7 +96,6 @@ export default {
             }
             console.log(authStore.email)
             const reqData = {
-                email: authStore.email,
                 oldPass: currentPassword,
                 newPass: newPassword
             }

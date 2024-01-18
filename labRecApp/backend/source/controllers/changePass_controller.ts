@@ -4,7 +4,8 @@ import user from '../db/models/user_model'
 
 export const changePassword = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { email, oldPass, newPass } = req.body;
+        const { email } = req.params
+        const { oldPass, newPass } = req.body;
         console.log("Servido:\n")
         console.log(email)
         const usuario = await user.findOne({ email }); 
