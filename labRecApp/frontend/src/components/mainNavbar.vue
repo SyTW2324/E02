@@ -8,6 +8,7 @@
       </Menubar>
     </div>
     <RegisterForm v-if="registerRequest" :showForm="registerRequest" @close="closeRegister()" /> 
+    <changePassComponent v-if="changePassFormRquest" :showForm="changePassFormRquest" @close="closeChangePassForm()"/> 
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import { userAuthentication } from "../tools/store";
 import { useRouter } from 'vue-router';
 import RegisterForm from "../components/registerForm.vue"
 import {ref} from "vue" 
+import changePassComponent from "./changePassComponent.vue"
 
 export default {
   data() {
@@ -25,12 +27,14 @@ export default {
   name: "mainNavbarComponent",
   components: {
     Menubar,
-    RegisterForm
+    RegisterForm,
+    changePassComponent
   },
   setup() {
     const authStore = userAuthentication();
     const router = useRouter();
     var registerRequest = ref(false);
+    var changePassFormRquest = ref(false);
     const logout = () => {
       //console.log("Esta entrando aqui ...")
 
@@ -67,6 +71,15 @@ export default {
     const redirectToCalendar = () => {
       router.push('/calendar')
     }
+
+    const openChangePassForm = () => {
+      changePassFormRquest.value = true;
+    }
+
+    const closeChangePassForm = () => {
+      changePassFormRquest.value = false;
+    }
+
     const items = [
       {
         label: 'Mi cuenta',
@@ -80,7 +93,7 @@ export default {
           {
             label: 'Cambiar la contraseña',
             icon: 'pi pi-fw pi-cog',
-            to: ''
+            command: openChangePassForm
           },
           {
             label: 'Cerrar sesión',
@@ -132,6 +145,8 @@ export default {
       redirectToMainPage,
       registerRequest,
       closeRegister,
+      closeChangePassForm,
+      changePassFormRquest
     }
   }
 }
