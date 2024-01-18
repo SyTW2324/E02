@@ -61,16 +61,24 @@ export default {
         const updatePass = async ( body: any) => {
             try {
                 await axios.get(`https://perfect-cod-pantsuit.cyclic.app/change/password`, body);
+                let responseMessage = '';
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Éxito',
+                    text: responseMessage,
+                });
+
             } catch (error: any) {
-                    console.log("Ha ocurrido un error\n");
-                    let errorMessage = '';
-                    if (error.response) {
-                        errorMessage = JSON.stringify(error.response.data.error);
-                    } else if (error.request) {
-                        errorMessage = 'No se recibió respuesta del servidor';
-                    } else {
-                        errorMessage = `Error de configuración de la solicitud: ${error.message}`;
-                    }
+                console.log("Ha ocurrido un error\n");
+                let errorMessage = '';
+                if (error.response) {
+                    errorMessage = JSON.stringify(error.response.data.error);
+                } else if (error.request) {
+                    errorMessage = 'No se recibió respuesta del servidor';
+                } else {
+                    errorMessage = `Error de configuración de la solicitud: ${error.message}`;
+                }
 
                 Swal.fire({
                     icon: 'error',
