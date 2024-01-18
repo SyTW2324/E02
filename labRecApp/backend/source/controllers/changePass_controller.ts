@@ -5,7 +5,10 @@ import user from '../db/models/user_model'
 export const changePassword = async (req: Request, res: Response): Promise<void> => {
     try {
         const { email, oldPass, newPass } = req.body;
+        console.log("Servido:\n")
+        console.log(email)
         const usuario = await user.findOne({ email }); 
+        console.log(usuario)
         if (!usuario) {
             res.status(401).json({ error: 'No existe el usuario' })
             return;

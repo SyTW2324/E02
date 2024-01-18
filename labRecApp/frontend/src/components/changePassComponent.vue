@@ -94,7 +94,7 @@ export default {
                 errorMessage.value = "Por favor, complete todos los campos obligatorios.";
                 return;
             }
-
+            console.log(authStore.email)
             const reqData = {
                 email: authStore.email,
                 oldPass: currentPassword,
