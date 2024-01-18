@@ -37,7 +37,7 @@ app.use(express.json());// Usamos el middleware .json() para que las peticiones 
 //}));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Reemplaza con tu origen permitido
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
   res.setHeader('Access-Control-Allow-Methods', 'PATCH, GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
