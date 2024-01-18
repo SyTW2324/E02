@@ -36,8 +36,8 @@
 import InputText from "primevue/inputtext";
 import {ref} from 'vue'
 import { userAuthentication } from "../tools/store";
-import Swal from 'sweetalert2';
-import axios from 'axios';
+//import Swal from 'sweetalert2';
+//import axios from 'axios';
 
 export default {
     name: "changePassComponent",
@@ -58,36 +58,36 @@ export default {
         const errorMessage = ref("");
         const authStore = userAuthentication();
 
-        const updatePass = async ( body: any) => {
-            try {
-                await axios.get(`https://perfect-cod-pantsuit.cyclic.app/change/password/${authStore.email}`, body);
-                let responseMessage = '';
-                
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Éxito',
-                    text: responseMessage,
-                });
-
-            } catch (error: any) {
-                console.log("Ha ocurrido un error\n");
-                let errorMessage = '';
-                if (error.response) {
-                    errorMessage = JSON.stringify(error.response.data.error);
-                } else if (error.request) {
-                    errorMessage = 'No se recibió respuesta del servidor';
-                } else {
-                    errorMessage = `Error de configuración de la solicitud: ${error.message}`;
-                }
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: errorMessage,
-                });
-            }
-        }
-
+        //const updatePass = async ( body: any) => {
+        //    try {
+        //        //await axios.get(`https://perfect-cod-pantsuit.cyclic.app/change/password/${authStore.email}`, body);
+        //        let responseMessage = '';
+        //        
+        //        Swal.fire({
+        //            icon: 'success',
+        //            title: 'Éxito',
+        //            text: responseMessage,
+        //        });
+//
+        //    } catch (error: any) {
+        //        console.log("Ha ocurrido un error\n");
+        //        let errorMessage = '';
+        //        if (error.response) {
+        //            errorMessage = JSON.stringify(error.response.data.error);
+        //        } else if (error.request) {
+        //            errorMessage = 'No se recibió respuesta del servidor';
+        //        } else {
+        //            errorMessage = `Error de configuración de la solicitud: ${error.message}`;
+        //        }
+//
+        //        Swal.fire({
+        //            icon: 'error',
+        //            title: 'Error',
+        //            text: errorMessage,
+        //        });
+        //    }
+        //}
+//
         const submitForm = () => {
 
             if (!currentPassword.value || !repeatCurrentPassword.value || !newPassword.value) {
@@ -100,7 +100,7 @@ export default {
                 newPass: newPassword
             }
 
-            updatePass(reqData)
+            //updatePass(reqData)
             emit('close')
         }
 
