@@ -50,8 +50,8 @@ import '../styles/app_style.css';
       }  
       const clickk = async () => {
         const response = await authStore.login(user_data);
-        console.log(authStore.getUserData())
-        console.log(authStore.getAuthentication());
+        //console.log(authStore.getUserData())
+        //console.log(authStore.getAuthentication());
         if (response == "Success") {
           //Redirigimos al usuario a la página principal de la aplicación
           router.push('/mainPage')
