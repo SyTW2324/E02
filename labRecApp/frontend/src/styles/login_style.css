@@ -26,7 +26,6 @@
 .login_Component input[type="text"]:focus,
 .login_Component input[type="password"]:focus {
     border-color: #b28d53;
-    /* Cambia el color del borde al pasar el ratón o al tener el foco */
 }
 
 .login_Component button {
@@ -42,7 +41,6 @@
 
 .login_Component button:hover {
     background-color: #dfb26b;
-    /* Cambia el color de fondo al pasar el ratón */
 }
 
 .login_Component {
