@@ -99,7 +99,7 @@ export default {
 
         const updateValues = async (param:string, body: any) => {
             try {
-                await axios.patch(`https://repulsive-miniskirt-wasp.cyclic.app/record/${param}`, body);
+                await axios.patch(`https://rabbit-nightgown.cyclic.app/record/${param}`, body);
                 //const recordResponseJson = JSON.parse(JSON.stringify(recordRespone.data)); 
                 //console.log(recordResponseJson);
                 window.location.reload();

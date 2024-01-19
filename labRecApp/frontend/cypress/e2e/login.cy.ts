@@ -2,7 +2,7 @@ import { defineStore, createPinia } from 'pinia';
 describe('Login spec', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:5173/login');
+    cy.visit('https://rabbit-nightgown.cyclic.app/login');
   }); 
 
   context('Elementos del Arbol DOM', () => {
@@ -26,7 +26,7 @@ describe('Login spec', () => {
       cy.get('button').click();
       
       // Si se inicia sesión deberia redirigirnos a la pagina principal de la aplicacion
-      cy.url().should('eq', 'http://localhost:5173/mainPage');
+      cy.url().should('eq', 'https://rabbit-nightgown.cyclic.app/mainPage');
     })
   })
 })

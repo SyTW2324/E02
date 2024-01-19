@@ -60,7 +60,7 @@ export default {
 
         const updatePass = async ( body: any) => {
             try {
-                //await axios.patch(`https://repulsive-miniskirt-wasp.cyclic.app/change/password/${authStore.email}`, body);
+                //await axios.patch(`https://rabbit-nightgown.cyclic.app/change/password/${authStore.email}`, body);
                 let responseMessage = '';
                 
                 Swal.fire({

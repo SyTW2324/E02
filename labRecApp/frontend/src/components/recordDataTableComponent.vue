@@ -60,7 +60,7 @@
 
         onMounted(async () => {
             try {
-            const response = await axios.get(`https://repulsive-miniskirt-wasp.cyclic.app/record`);
+            const response = await axios.get(`https://rabbit-nightgown.cyclic.app/record`);
             records.value = response.data;
             } catch (error) {
             console.error('Error fetching records:', error);

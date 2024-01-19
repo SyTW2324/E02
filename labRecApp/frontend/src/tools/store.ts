@@ -83,7 +83,7 @@ export const userAuthentication = defineStore({
     },
     async login(credentials: { email: string, password: string }) {
       try {
-        const userResponse = await axios.post('https://repulsive-miniskirt-wasp.cyclic.app/users/login', credentials)
+        const userResponse = await axios.post('https://rabbit-nightgown.cyclic.app/users/login', credentials)
         const userResponseJSON = JSON.parse(JSON.stringify(userResponse.data));
         const userData = fillUserData(userResponseJSON);
         this.setUserData(userData);
@@ -116,7 +116,7 @@ export const userAuthentication = defineStore({
     },
     async verifyAndSetUser(token: string) {
       try {
-        const response = await axios.get('https://repulsive-miniskirt-wasp.cyclic.app/users/verify', {
+        const response = await axios.get('https://rabbit-nightgown.cyclic.app/users/verify', {
           headers: {
             Authorization: `Bearer ${token}`
           }
