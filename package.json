@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm run start-backend",
-    "start-backend": "cd labRecApp/backend && npm run build",
+    "start-backend": "cd labRecApp/backend && npm run build && npm run start",
     "start-frontend": "cd labRecApp/frontend && nohup http.server dist/ -a *adress* -p *puerto*",
     "stop": "npm run stop-backend && npm run stop-frontend",
     "stop-backend": "cd labRecApp/backend && pm2 stop source/server.ts",
